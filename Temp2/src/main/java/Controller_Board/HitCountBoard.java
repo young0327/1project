@@ -20,6 +20,8 @@ public class HitCountBoard extends HttpServlet {
 		
 		request.setCharacterEncoding("euc-kr");
 		
+		System.out.println("들어오시나요");
+		
 		int seq_num = Integer.parseInt(request.getParameter("num"));
 		
 		BoardDAO dao = new BoardDAO();

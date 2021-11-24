@@ -7,21 +7,19 @@ public class BoardVO {
 	private String article_content;
 	private String reg_date;
 	private String file1;
-	private String file2;
 	private int cnt;
 	private String u_id;
 	private String nick;
 	
 	
 	public BoardVO(int article_seq, String article_subject, String article_content, String reg_date, String file1,
-			String file2, int cnt, String u_id, String nick) {
+			int cnt, String u_id, String nick) {
 		super();
 		this.article_seq = article_seq;
 		this.article_subject = article_subject;
 		this.article_content = article_content;
 		this.reg_date = reg_date;
 		this.file1 = file1;
-		this.file2 = file2;
 		this.cnt = cnt;
 		this.u_id = u_id;
 		this.nick = nick;
@@ -33,8 +31,18 @@ public class BoardVO {
 	}
 
 
+	public void setArticle_seq(int article_seq) {
+		this.article_seq = article_seq;
+	}
+
+
 	public String getArticle_subject() {
 		return article_subject;
+	}
+
+
+	public void setArticle_subject(String article_subject) {
+		this.article_subject = article_subject;
 	}
 
 
@@ -43,8 +51,18 @@ public class BoardVO {
 	}
 
 
+	public void setArticle_content(String article_content) {
+		this.article_content = article_content;
+	}
+
+
 	public String getReg_date() {
 		return reg_date;
+	}
+
+
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
 	}
 
 
@@ -53,8 +71,8 @@ public class BoardVO {
 	}
 
 
-	public String getFile2() {
-		return file2;
+	public void setFile1(String file1) {
+		this.file1 = file1;
 	}
 
 
@@ -63,14 +81,35 @@ public class BoardVO {
 	}
 
 
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+
 	public String getU_id() {
 		return u_id;
+	}
+
+
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
 	}
 
 
 	public String getNick() {
 		return nick;
 	}
+
+
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+	
+	
+	
+	
+	
+
 	
 	
 

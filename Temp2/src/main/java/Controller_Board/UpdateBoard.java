@@ -24,7 +24,7 @@ public class UpdateBoard extends HttpServlet {
 		try{
 		// post방식 인코딩
 		request.setCharacterEncoding("euc-kr");
-		
+		System.out.println("업데이트보드 들어오나?");
 		//1. request 객체
 		//2. savePath(저장경로)
 		// getServletContext : 서블릿 실행 환경에 대한 정보
@@ -54,22 +54,17 @@ public class UpdateBoard extends HttpServlet {
 		// 이미지 태그에 경로를 작성할 때는 16진수로 작성해줘야한다.(나중에 HTML에서 사용할 때 대비)
 		// 따라서 인코딩을 진행해야함! 인코딩(문자 -> 코드)
 		// URLEncoder.encode(인코딩할 값, 인코딩 방식)
-		String file1 = URLEncoder.encode(multi.getFilesystemName("file1"), "euc-kr");
-		String file2 = URLEncoder.encode(multi.getFilesystemName("file2"), "euc-kr");
+		
+		String file1 = null;
+		if(multi.getFilesystemName("file1") !=null) {
+			file1 = URLEncoder.encode(multi.getFilesystemName("file1"), "euc-kr");
+		}
+
 		String content = multi.getParameter("content");
-		
-		String file1Name = URLDecoder.decode(file1, "euc-kr");
-		String file2Name = URLDecoder.decode(file2, "euc-kr");
-		
-		System.out.println("title : " + title);
-		System.out.println("seq : " + num);
-		System.out.println("file1 : " + file1Name);
-		System.out.println("file2 : " + file2Name);
-		System.out.println("content : " + content);
 		
 		BoardDAO dao = new BoardDAO();
 		
-		int cnt = dao.updateArticle(title, content, file1, file2, num);
+		int cnt = dao.updateArticle(title, content, file1, num);
 
 		if(cnt > 0) {
 			System.out.println("글 업데이트 성공!");

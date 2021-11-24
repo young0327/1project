@@ -49,7 +49,7 @@ public class BoardDAO {
 	
 
 	//2. 수정 기능
-	public int updateArticle(String article_subject, String article_content, String file1, String file2, int article_seq) {
+	public int updateArticle(String article_subject, String article_content, String file1, int article_seq) {
 		
 		int cnt = 0;
 		
@@ -57,7 +57,7 @@ public class BoardDAO {
 			get_conn();
 			
 			//3. 실행한 sql 정의
-			String sql = "update T_community set ARTICLE_SUBJECT = ?, ARTICLE_CONTENT = ?, file1 = ?, file2= ? where ARTICLE_SEQ = ?";
+			String sql = "update T_community set ARTICLE_SUBJECT = ?, ARTICLE_CONTENT = ?, file1 = ? where ARTICLE_SEQ = ?";
 			
 			//4. 실행 객체 생성(PreparedStatement)
 			pst = conn.prepareStatement(sql);
@@ -67,8 +67,7 @@ public class BoardDAO {
 			pst.setString(1, article_subject);
 			pst.setString(2, article_content);
 			pst.setString(3, file1);
-			pst.setString(4, file2);
-			pst.setInt(5, article_seq);
+			pst.setInt(4, article_seq);
 
 
 			
@@ -129,7 +128,7 @@ public class BoardDAO {
 	}
 	
 
-	public int writeArticle(String article_subject, String article_content, String file1, String file2, String u_id) {
+	public int writeArticle(String article_subject, String article_content, String file1, String u_id) {
 		
 		int cnt = 0;
 		
@@ -137,7 +136,7 @@ public class BoardDAO {
 			get_conn();
 			
 			//3. 실행한 sql 정의
-			String sql = "insert into T_community values(article_seq.nextval, ?, ?, sysdate, ?, ?, ?, ?)";
+			String sql = "insert into T_community values(article_seq.nextval, ?, ?, sysdate, ?, ?, ?)";
 			
 			//4. 실행 객체 생성(PreparedStatement)
 			pst = conn.prepareStatement(sql);
@@ -147,9 +146,8 @@ public class BoardDAO {
 			pst.setString(1, article_subject);
 			pst.setString(2, article_content);
 			pst.setString(3, file1);
-			pst.setString(4, file2);
-			pst.setInt(5, 0);
-			pst.setString(6, u_id);
+			pst.setInt(4, 0);
+			pst.setString(5, u_id);
 
 			
 			//6. sql 실행
@@ -178,7 +176,7 @@ public class BoardDAO {
 		try {
 			get_conn();
 			// 3. 실행할 sql 정의
-			String sql = "select C.ARTICLE_SEQ, C.ARTICLE_SUBJECT, C.ARTICLE_CONTENT, C.REG_DATE, C.FILE1, C.FILE2, C.CNT, C.U_ID, U.U_nickname from T_community C, T_user U where C.u_id = U.u_id order by reg_date desc";
+			String sql = "select C.ARTICLE_SEQ, C.ARTICLE_SUBJECT, C.ARTICLE_CONTENT, C.REG_DATE, C.file1, C.CNT, C.U_ID, U.U_nickname from T_community C, T_user U where C.u_id = U.u_id order by reg_date desc";
 
 			// 4. PreparedStatement 객체 생성
 			pst = conn.prepareStatement(sql);
@@ -193,14 +191,13 @@ public class BoardDAO {
 				String title = rs.getString("ARTICLE_SUBJECT");
 				String CONTENT = rs.getString("ARTICLE_CONTENT");
 				String REG_DATE = rs.getString("REG_DATE");
-				String file1 = rs.getString("FILE1");
-				String file2 = rs.getString("FILE2");
+				String file1 = rs.getString("file1");
 				int cnt = rs.getInt("CNT");
 				String id = rs.getString("U_ID");
 				String nick = rs.getString("u_nickname");
 
 				
-				BoardVO vo = new BoardVO(num, title, CONTENT, REG_DATE, file1, file2, cnt, id, nick);
+				BoardVO vo = new BoardVO(num, title, CONTENT, REG_DATE, file1, cnt, id, nick);
 				
 				al.add(vo);
 
@@ -227,7 +224,7 @@ public class BoardDAO {
 		try {
 			get_conn();
 			// 3. 실행할 sql 정의
-			String sql = "select C.ARTICLE_SEQ, C.ARTICLE_SUBJECT, C.ARTICLE_CONTENT, C.REG_DATE, C.FILE1, C.FILE2, C.CNT, C.U_ID, U.U_nickname from T_community C, T_user U where C.u_id = U.u_id and c.article_seq=?";
+			String sql = "select C.ARTICLE_SEQ, C.ARTICLE_SUBJECT, C.ARTICLE_CONTENT, C.REG_DATE, C.file1, C.CNT, C.U_ID, U.U_nickname from T_community C, T_user U where C.u_id = U.u_id and c.article_seq=?";
 
 			// 4. PreparedStatement 객체 생성
 			pst = conn.prepareStatement(sql);
@@ -244,15 +241,14 @@ public class BoardDAO {
 				String title = rs.getString("ARTICLE_SUBJECT");
 				String CONTENT = rs.getString("ARTICLE_CONTENT");
 				String REG_DATE = rs.getString("REG_DATE");
-				String file1 = rs.getString("FILE1");
-				String file2 = rs.getString("FILE2");
+				String file1 = rs.getString("file1");
 				int cnt = rs.getInt("CNT");
 				String id = rs.getString("U_ID");
 				String nick = rs.getString("u_nickname");
 				
 				
 				
-				vo = new BoardVO(num, title, CONTENT, REG_DATE, file1, file2, cnt, id, nick);
+				vo = new BoardVO(num, title, CONTENT, REG_DATE, file1, cnt, id, nick);
 				
 
 
