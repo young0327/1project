@@ -216,14 +216,7 @@ UserDAO dao = new UserDAO();
 							<a href="join/join.html" class="a_margin"> 회원가입</a>
 						</div>
 					<%}else { %>
-						<%if(vo.getId().equals("admin")){ %>
-							<div class="header__top__right__auth">
-							<span><a href="userList.jsp" class="a_margin"> 회원리스트보기</a></span>
-							</div>
-							<div class="header__top__right__auth">
-								<a href="LogoutService" class="a_margin"> Logout</a>
-							</div>
-						<%}else{ %>
+
 
 							<div class="header__top__right__auth">
 								<a href="join/updateUser.jsp" class="a_margin"> 회원정보수정</a>
@@ -232,7 +225,7 @@ UserDAO dao = new UserDAO();
 								<a href="LogoutService" class="a_margin"> Logout</a>
 							</div>
 						<%} %>
-					<%} %>
+				
 					</div>
 				</div>
 
