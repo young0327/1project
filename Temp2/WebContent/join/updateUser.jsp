@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="sortcut icon" type="image/x-icon" href="../img/new/titleLogo.png">
-        <title>G-CAP : 회원가입</title>
+        <title>회원정보수정</title>
         <link rel="stylesheet" href="join.css">
         
     </head>
@@ -32,10 +32,10 @@
         <div id="wrapper">
 		
             <!-- content-->
-            <div id="content">
+            <div id="content" style="height:700px">
 
                 <!-- ID -->
-                <div>
+                <div style="height: 70px;">
                     <h3 class="join_title">
                         <label for="id">아이디</label>
                         
@@ -156,7 +156,7 @@
                     <span class="box int_id">
                         <input type="text" id="sample6_postcode" name="postcd" class="int" maxlength="20" value=<%=vo.getPostcd()%>>
                         <!-- <span class="step_url" type="button">아이디 중복체크</span> -->
-                        <button class="step_url" type="button" onclick="sample6_execDaumPostcode()" id="sbmitBtn">우편번호찾기</button>
+                        <button class="step_url" type="button" onclick="sample6_execDaumPostcode()" id="sbmitBtn" style="cursor:pointer;">우편번호찾기</button>
                     </span>
                     <span class="error_next_box"></span>    
                 </div>
