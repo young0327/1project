@@ -215,14 +215,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-5">
-                <div class="blog__sidebar">
+                	<div class="blog__sidebar">
                         <div class="blog__sidebar__search">
                             <form action="#">
                                 <input type="text" placeholder="Search...">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>
-                    <div class="sidebar">
+                  		<div class="sidebar">
                         <div class="sidebar__item">
                             <h4>지역</h4>
                             <ul>
@@ -257,7 +257,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                             <!-- <div class="product__discount__slider owl-carousel">
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
@@ -370,8 +369,8 @@
                             </div>
                         </div> 
                     </div>
-                    -->
-                    <!-- <div class="filter__item">
+                    
+                    <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
@@ -394,7 +393,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
                     
                     <!-- <div class="product__pagination">
                         <a href="#">1</a>
@@ -405,6 +404,9 @@
                     </div>
                 </div>
             </div>
+            <!-- map 들어갈 자리  -->
+            <div id="map" style="width:75%;"></div>
+            
         </div>
     </section>
     <!-- Product Section End -->
@@ -486,6 +488,20 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e5c107341d8332c5993a529311e641d"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨
+		};
+
+		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+	</script>
 
 
 
