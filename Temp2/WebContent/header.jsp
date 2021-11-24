@@ -35,7 +35,7 @@
         #divLogin {
             text-align: right;
         }
-
+	
     </style>
 
 </head>
@@ -174,7 +174,7 @@
                                     카테고리
                                     <span class="arrow_carrot-down"></span>
                                 </div>-->
-                                <input type="text" placeholder="찾으시는 취미가 있으신가요?">
+                                <input type="text" placeholder="찾으시는 취미가 있으신가요?" style="height: 45px;">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -193,8 +193,7 @@
            
         </div>
     </section>
-    <!-- Hero Section End -->
-       
+    
    
    
    
