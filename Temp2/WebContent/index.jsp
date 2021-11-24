@@ -200,7 +200,7 @@ UserDAO dao = new UserDAO();
 									<li><a href="./checkout.html">Check Out</a></li>
 									<li><a href="./blog-details.html">Blog Details</a></li>
 								</ul></li> -->
-							<li><a href="./blog.html">강의수요조사</a></li>
+							<li><a href="./blog.html">전체클래스</a></li>
 							<li><a href="boardMain.jsp">커뮤니티</a></li>
 						</ul>
 					</nav>
@@ -332,25 +332,25 @@ UserDAO dao = new UserDAO();
 					<div class="ttt" style="text-align: center;">
 						<div class="ttt" style="text-align: center; position:relative; top:-100px; z-index:1; left:250px">
 							<div class="categories__item set-bg test"
-								data-setbg="img/new/classlist.png">
+								data-setbg="img/categories/class2.png">
 								<!-- <h5><a href="#">강의 목록</a></h5> -->
 							</div>
 							<div class="categories__item set-bg test"
-								data-setbg="img/categories/cat-2.jpg" >
+								data-setbg="img/categories/location8.png" >
 								<h5>
-									<a href="#">내 근처 강의</a>
+									<!-- <a href="#">내 근처 강의</a> -->
 								</h5>
 							</div>
 							<div class="categories__item set-bg test" 
-								data-setbg="img/categories/cat-3.jpg" >
+								data-setbg="img/categories/file2.png" >
 								<h5>
-									<a href="#">관심 성향 테스트</a>
+									<!-- <a href="#">관심 성향 테스트</a> -->
 								</h5>
 							</div>
 							<div class="categories__item set-bg test"
-								data-setbg="img/categories/cat-4.jpg" >
+								data-setbg="img/categories/call5.png" >
 								<h5>
-									<a href="#">전화</a>
+									<!-- <a href="#">전화</a> -->
 								</h5>
 							</div>
 						</div>
@@ -375,7 +375,7 @@ UserDAO dao = new UserDAO();
 	<!-- 부모 -->
 		<div class="container" style="text-align: center; position:relative;">
 			<div class="row">
-				<div class="col-lg-12" style="position : relative;right:9.2cm;">
+				<div class="col-lg-12" style="position : relative; /*right:9.2cm;*/">
 					<div class="section-title">
 						<h2>클래스</h2>
 					</div>
@@ -544,16 +544,6 @@ UserDAO dao = new UserDAO();
 	<div class="banner">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="img/new/ezgif-3-de97db19cb70.gif" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="img/new/ezgif-3-de97db19cb70.gif" alt="">
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
