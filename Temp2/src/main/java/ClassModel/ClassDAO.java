@@ -366,6 +366,38 @@ public class ClassDAO {
 	return al;
 }
 	
+	// 모든 검색 카테고리 정보 
+	public ArrayList<ClassVO> nearClassSearch() {
+		ArrayList<ClassVO> al = new ArrayList<ClassVO>();
+			
+		try {
+			getconn();
+
+			String sql = "select * from T_CLASS";
+
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				
+				int c_seq = rs.getInt("c_seq");
+				String c_name = rs.getString("c_name");
+				String c_location = rs.getString("c_location");
+				String c_pay = rs.getString("c_pay");
+				
+				ClassVO vo = new ClassVO(c_seq, c_name, c_location, c_pay);
+				al.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace(); 
+
+		} finally {
+			close();
+		}
+		return al;
+	}
+	
 	
 	
 }

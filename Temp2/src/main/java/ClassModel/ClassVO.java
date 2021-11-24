@@ -46,6 +46,17 @@ public class ClassVO {
 		this.c_start_dt = c_start_dt;
 		this.c_end_dt = c_end_dt;
 	}
+	
+	public ClassVO(int c_seq, String c_name, String c_location, String c_pay) {
+		super();
+		this.c_seq = c_seq;
+		this.c_name = c_name;
+		this.c_location = c_location;
+		this.c_pay = c_pay;
+
+	}
+	
+	
 	public int getC_seq() {
 		return c_seq;
 	}
