@@ -98,12 +98,12 @@
                             <!-- <li class="active"><a href="./index.html">HOME</a></li> -->
                             <li><a href="./GPSClass.html">내 근처 강의</a></li>
                             <li><a href="#">관심성향테스트</a>
-                                <ul class="header__menu__dropdown">
+                                <!--  <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
+                                </ul>-->
                             </li>
                             <li><a href="./blog.html">강의수요조사</a></li>
                             <li><a href="./contact.html">커뮤니티</a></li>
