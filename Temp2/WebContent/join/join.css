@@ -1,4 +1,4 @@
-/* �룿�듃 �뙣諛�由� */
+/* �룿�듃 �뙣諛���� */
 @font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
 
 @font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 300;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');} 
@@ -129,12 +129,13 @@ h3 {
 .int {
     display: inline;
     position: absolute;
-    width: 90%;
+    width: 85%;
     height: 28px;
     border: none;
     background: #fff;
     font-size: 15px;
     border-radius: 0.5px;
+    left: 8px;
 }
 
 input {
@@ -162,10 +163,15 @@ input {
     position: absolute;
     top: 7px;
     right: 13px;
-    font-size: 15px;
+    font-size: 16px;
     color: #8e8e8e;
     margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px;
+    vertical-align: center;
 }
+
 
 .pswdImg {
     width: 18px;
@@ -217,20 +223,16 @@ select {
     cursor: default;
     font-family: Helvetica,sans-serif;
 }
-#sbmitBtn{
-    background-color: white;
-    border-radius: 5px;
-    border: solid 1px;
-    vertical-align: center;
-    
 
-}
+ #sample6_postcode{
+ 		width: 65%
+ }
 
 
 
 
 
-/* �뿉�윭硫붿꽭吏� */
+/* �뿉�윭硫붿�吏� */
 
 .error_next_box {
     margin-top: 9px;
@@ -249,7 +251,7 @@ select {
     display: none;
 }
 
-/* 踰꾪듉 */
+/* 踰꾪�� */
 
 .btn_area {
     margin: 30px 0 91px;
