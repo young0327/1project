@@ -281,7 +281,7 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-9" style="height: 60px;">
 					<div class="hero__search">
 						<div class="hero__search__form">
-							<form action="/pro/MainSearchClass.jsp">
+							<form action="MainSearchClass.jsp">
 								<!-- <div class="hero__search__categories"> 
                                     카테고리
                                     <span class="arrow_carrot-down"></span>
