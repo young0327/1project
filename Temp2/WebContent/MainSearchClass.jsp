@@ -194,7 +194,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="/pro/MainSearchClass.jsp">
+                            <form action="MainSearchClass.jsp">
                                 <div class="hero__search__categories">
                                     카테고리
                                     <span class="arrow_carrot-down"></span>
@@ -242,7 +242,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
     <div class="filter__item">
                         <div class="row" style="margin-left: 65px; margin-right: 120px;">
                             <div class="filter__sort">
-                            <form action="/pro/CateConAll" border="1px,solid,black">
+                            <form action="CateConAll" border="1px,solid,black">
                         	<strong>위치 | </strong>
                         	동구  <input type="checkbox" name="location" value="동구" class="location">
                         	서구  <input type="checkbox" name="location" value="서구" class="location">
@@ -271,7 +271,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
                     	
                          <div class="product__item">  
                              <div class="product__item__pic">
-                         <a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px; margin-left:130px;"></a>	
+                         <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px; margin-left:130px;"></a>	
                                 <!--  <ul class="product__item__pic__hover">
                                      <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                      <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -279,7 +279,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
                                  </ul> -->
                              </div>
                              <div class="product__item__text">
-                                 <h5><a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
+                                 <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
                                  <h6>시작일자 : <%=vo.getC_start_dt() %></h6>
                                  <h6>종료일자 : <%=vo.getC_end_dt() %></h6>
                              </div>
