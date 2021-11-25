@@ -334,7 +334,7 @@ UserDAO dao = new UserDAO();
 			<div class="ttt" style="text-align: center; left:50%">
 					<div class="ttt" style="text-align: center;">
 						<div class="ttt" style="text-align: center; position:relative; top:-100px; z-index:1; left:250px">
-							<div class="categories__item set-bg test"
+							<div id="classlistbt"
 								data-setbg="img/categories/class2.png">
 								<!-- <h5><a href="#">강의 목록</a></h5> -->
 							</div>
