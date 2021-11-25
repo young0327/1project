@@ -210,12 +210,12 @@ ArrayList<ClassVO> al = dao.Search(cate);
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/index.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>전체클래스</h2>
+                        <h2><%=cate%>클래스</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>전체클래스</span>
@@ -252,12 +252,13 @@ ArrayList<ClassVO> al = dao.Search(cate);
                         	수강형  <input type="checkbox" name="type" value="수강형">
                         	<br><br>
                         	<div class="enter"><input type="submit" value ="검색"></div>
+                        	<hr color="black">
                             </form>
                            </div>
                            <br>
+                         
                                      <%for (ClassVO vo : al){%>
-                    	 <div class="col-lg-4 col-md-6 col-sm-6">
-                    	
+                         <div class = "offset col-3 col-3 offset col-3 m-0">          
                          <div class="product__item" style="text-align: center">  
                             
                          <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px"></a>	

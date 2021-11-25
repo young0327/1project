@@ -1584,8 +1584,14 @@ ol {
 }
 
 .product__item {
-	margin-bottom: 50px;
+	margin:30px;
+	margin-bottom: -5px;
+
 	
+}
+.col-lg-4 col-md-6 col-sm-6{
+	width:25%;
+	height:350px;
 }
 
 .product__item:hover .product__item__pic .product__item__pic__hover {
@@ -1789,7 +1795,7 @@ ol {
 .product__details__text ul {
 	border-top: 1px solid #ebebeb;
 	padding-top: 40px;
-	margin-top: 50px;
+	margin-top: -35px;
 }
 
 .product__details__text ul li {

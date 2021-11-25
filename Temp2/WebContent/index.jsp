@@ -320,11 +320,11 @@ UserDAO dao = new UserDAO();
 								data-setbg="img/new/ezgif-3-de97db19cb70.gif"
 								onclick="location.href='GPSClass.html'"></div>
 							<div class="hero__text">
-								<span>G-CAP</span>
+								<span style="color:#FF7F50">G-CAP</span>
 								<h2>
-									올해 가장 잘 나가는 <br />클래스를 0원에 <br />만날 수 있는 기회
+									광주<br />문화 예술 <br />플렛폼
 								</h2>
-								<p>30초안에 댓글달고 2021인기 클래스 무료로 듣자~!</p>
+								<p>광주 모든 문화예술 교육을 한 곳에</p>
 								<!-- <a href="#" class="primary-btn">클래스 보러가기</a> -->
 							</div>
 						</div>
@@ -334,7 +334,7 @@ UserDAO dao = new UserDAO();
 			<div class="ttt" style="text-align: center; left:50%">
 					<div class="ttt" style="text-align: center;">
 						<div class="ttt" style="text-align: center; position:relative; top:-100px; z-index:1; left:250px">
-							<div class="categories__item set-bg test"
+							<div id="classlistbt"
 								data-setbg="img/categories/class2.png">
 								<!-- <h5><a href="#">강의 목록</a></h5> -->
 							</div>
