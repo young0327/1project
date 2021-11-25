@@ -213,12 +213,12 @@ ArrayList<ClassVO> al = dao.cateSearch(location, time, type, cate);
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/index.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>전체클래스</h2>
+                        <h2><%=cate%>클래스</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>전체클래스</span>
@@ -233,9 +233,9 @@ ArrayList<ClassVO> al = dao.cateSearch(location, time, type, cate);
     <!-- Product Details Section Begin -->
     
     <div class="filter__item">
-                        <div class="row">
-                            <div class="filter__sort">
-                            <form action="CateCon" border="1px,solid,black">
+                       <div class="row">
+                            <div id="checkbox" style="border:border:1px,solid,black; width:100%;text-align: center;">
+                            <form action="CateCon" >
                         	<strong>위치 | </strong>
                         	동구  <input type="checkbox" name="location" value="동구" class="location">
                         	서구  <input type="checkbox" name="location" value="서구" class="location">
@@ -255,24 +255,18 @@ ArrayList<ClassVO> al = dao.cateSearch(location, time, type, cate);
                         	수강형  <input type="checkbox" name="type" value="수강형">
                         	<br><br>
                         	<div class="enter"><input type="submit" value ="검색"></div>
-                        	
+                        	<hr color="black">
                             </form>
-                            
                             </div>
+                            <br>
+                            
                          <%for (ClassVO vo : al){%>
-                    	 <div class="col-lg-4 col-md-6 col-sm-6">
-                    	
-                         <div class="product__item">  
-                             <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                      <div class = "offset col-3 col-3 offset col-3 m-0">          
+                         <div class="product__item" style="text-align: center">  
+                             
                          <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px"></a>	
-                                 <ul class="product__item__pic__hover">
-                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                 </ul>
-                             </div>
                              <div class="product__item__text">
-                                 <h5><a href="DetailPage.jsp"><%=vo.getC_name() %></a></h5>
+                                 <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
                                  <h6>시작일자 : <%=vo.getC_start_dt() %></h6>
                                  <h6>종료일자 : <%=vo.getC_end_dt() %></h6>
                              </div>
