@@ -25,9 +25,7 @@
 <style>
 body {
 
-	padding-top: 70px;
-
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 
 }
 
@@ -80,7 +78,9 @@ body {
 	margin : 10pt;
 
 	padding-bottom : 10pt;
-
+}
+.header{
+	    padding-bottom: 0px;
 }
 
 </style>
@@ -109,10 +109,40 @@ body {
 				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
 			</div>
 		</div>
+<!-- Reply Form {s} -->
 
-		
-
+			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
+				<form:form name="form" id="form" role="form" method="post">
+				<form:hidden path="bid" id="bid"/>
+				<div class="row">
+					<div class="col-sm-10">
+						<input type="text" path="content" id="content" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></input>
+					</div>
+					<div class="col-sm-2">
+						<form:input path="reg_id" class="form-control" id="reg_id" placeholder="댓글 작성자"> 닉네임</form:input>
+						<button type="button" class="btn btn-sm btn-primary" id="btnReplySave" style="width: 100%; margin-top: 10px"> 등록 </button>
+					</div>
+				</div>
+				</form:form>
+			</div>
+			<!-- Reply Form {e} -->
+			
+			<!-- Reply List {s}-->
+			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
+				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
+				<div id="replyList"></div>
+				
+				<div>
+				<span>1</span>
+				<button type="button" class="btn btn-sm btn-primary" id="btnList">수정</button>
+				</div>
+				<div><span>2</span></div>
+				<div><span>3</span></div>
+				<div><span>4</span></div>
+			</div> 
 	</article>
+
+
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
