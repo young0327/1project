@@ -600,6 +600,9 @@
 		}
 		
 		*/
+	
+		let json = {}
+		let arr = []
 		
 	$("#mapSearch").on('click', function(){
 		
