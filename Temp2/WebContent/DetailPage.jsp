@@ -239,33 +239,13 @@ int distnum = dao.DistinctClass(cnum);
                             <img class="product__details__pic__item--large"
                                 src="img/new/kids.jpg" alt="">
                         </div>
-                        <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="img/product/details/pure-julia.jpg"
-                                src="img/product/details/pure-julia.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/pure-julia.jpg"
-                                src="img/product/details/pure-julia.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/pure-julia.jpg"
-                                src="img/product/details/pure-julia.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/pure-julia.jpg"
-                                src="img/product/details/pure-julia.jpg" alt="">
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
                         <h3><%=vo.getC_name() %></h3>
-                        <div class="product__details__rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <span>(18 reviews)</span>
-                        </div>
                         <div class="product__details__price"><%=vo.getC_pay() %></div>
-                        <p>장소는 홍대에 위치한 작업실에서 진행됩니다.<br />
-							※희망하는 장소, 스케줄에 따라 카페 or 스터디 카페에서 진행될수 있으며 음료 등의 인당 이용비용이 발생합니다.<br />
-							시간 스케줄은 조율가능하니 편하게 문의 주세요! :)</p>
+                      
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <!-- <div class="pro-qty">
@@ -273,19 +253,13 @@ int distnum = dao.DistinctClass(cnum);
                                 </div> -->
                             </div>
                         </div>
-                        <%if(distnum == 1 ){ %>
-                         <span id = "distnictClass"> 수강중인 강의</span>
-                        <%}else{ %>
-                       <button type="button" id="modal-open">강의 신청</button> 
-                      <%} %>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                       
                         <ul>
                             <li><b>강사 명</b> <span><%=vo.getC_tchnm() %></span></li>
 							<li><b>시작 일자</b> <span><%=vo.getC_start_dt() %></span></li>
 							<li><b>종료 일자</b> <span><%=vo.getC_end_dt() %></span></li>
 							<li><b>강의 시간</b> <span><%=vo.getC_time() %></span></li>
 							<li style = "display : none;" ><span id ="cnum"><%=vo.getC_seq() %></span></li>
-							<li><b>유의사항</b> <span>준비물 : 드로잉북 / 콩테연필</span></li>					     
                             <li><b>SNS</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -294,7 +268,12 @@ int distnum = dao.DistinctClass(cnum);
                                     <a href="#"><i class="fa fa-pinterest"></i></a>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> 
+                        <%if(distnum == 1 ){ %>
+                         <span id = "distnictClass"> 수강중인 강의</span>
+                        <%}else{ %>
+                       <button type="button" id="modal-open" style="margin-top:13px">강의 신청</button> 
+                      <%} %>
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -456,7 +435,7 @@ int distnum = dao.DistinctClass(cnum);
       </div>
       <div class="popup-foot">
         <span class="pop-btn confirm" id="confirm1">강의 수강</span>
-        <span class="pop-btn close" id="closed">취소</span>
+        <span class="pop-btn closed" id="closed">취소</span>
       </div>
     </div>
 </div>
