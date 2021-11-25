@@ -310,7 +310,7 @@ UserDAO dao = new UserDAO();
 					<div>
 						<div type="button" class="hero__item set-bg"
 							style="position: relative; z-index: 1;"
-							data-setbg="img/new/ezgif-3-de97db19cb70.gif"
+							data-setbg="img/bnn.jpg"
 							onclick="location.href='GPSClass.html'">
 							<div type="button" class="hero__item set-bg"
 								style="position: relative; z-index: 1;"
