@@ -60,6 +60,11 @@ ClassDAO dao = new ClassDAO();
 al = dao.TestSearch(type);
 }else{
 String Searchs = request.getParameter("Searchs");
+if(Searchs==null)
+	Searchs="";
+else{
+	
+}
 session.setAttribute("cate",Searchs);
 ClassDAO dao = new ClassDAO();
 al = dao.MainSearch(Searchs);

@@ -258,10 +258,10 @@ ArrayList<ClassVO> al = dao.Search(cate);
                                      <%for (ClassVO vo : al){%>
                     	 <div class="col-lg-4 col-md-6 col-sm-6">
                     	
-                         <div class="product__item">  
-                             <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                         <div class="product__item" style="text-align: center">  
+                            
                          <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px"></a>	
-                             </div>
+                             
                              <div class="product__item__text">
                                  <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
                                  <h6>시작일자 : <%=vo.getC_start_dt() %></h6>

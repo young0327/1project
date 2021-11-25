@@ -203,7 +203,7 @@ UserDAO dao = new UserDAO();
 									<li><a href="./checkout.html">Check Out</a></li>
 									<li><a href="./blog-details.html">Blog Details</a></li>
 								</ul></li> -->
-							<li><a href="./MainSearchClass.jsp">전체클래스</a></li>
+							<li><a href="MainSearchClass.jsp">전체클래스</a></li>
 							<li><a href="./Board/BoardList.jsp">커뮤니티</a></li>
 						</ul>
 					</nav>
