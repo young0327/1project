@@ -16,7 +16,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="sortcut icon" type="image/x-icon" href="img/new/titleLogo.png">
+    <link rel="sortcut icon" type="image/x-icon" href="img/index/logo.png">
     <title>header</title>
 
     <!-- Google Font -->
@@ -50,7 +50,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="#"><img src="img/logooo.png" alt=""></a>
         </div>
         <div class="header__top__right__auth">
             <a href=""><i class="fa fa-user"></i> ·Î±×ÀÎ</a>
