@@ -1,3 +1,6 @@
+<%@page import="ClassModel.ClassVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="ClassModel.ClassDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -29,7 +32,7 @@
 	<style>
 		.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 		.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-		.map_wrap {position:relative;width:100%;height:500px;}
+		.map_wrap {position:relative;width:100%;}
 		#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
 		.bg_white {background:#fff;}
 		#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
@@ -67,6 +70,12 @@
 </head>
 
 <body>
+<%
+	ClassDAO dao = new ClassDAO();
+	ArrayList<ClassVO> al = dao.nearClassSearch();
+	
+
+%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -253,9 +262,9 @@
 
     <!-- Product Section Begin -->
     <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-5">
+        <div class="container" style="width:100%;">
+            <div class="row" style="width:100%;">
+                <div class="col-lg-3 col-md-5" style="float:left;">
                 	<div class="blog__sidebar">
                         <div class="blog__sidebar__search">
                             <!-- 주소찾기 -->
@@ -319,15 +328,15 @@
                             </div>
                         </div>
                         <div>
-                        	<button id="nearClassSearch" type="button" onclick="nearClassSearch()">검색하기</button>
+                        	<button id="mapSearch" type="button">검색하기</button>
                         </div>
  
                     </div>
                 </div>
             </div>
             <!-- map 들어갈 자리  -->
-            <div class="map_wrap">
-			    <div id="map" style="width:70%;height:100%;position:relative;overflow:hidden;"></div>
+            <div class="map_wrap" style="width:75%;">
+			    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 			
 			    <div id="menu_wrap" class="bg_white">
 			        <div class="option">
@@ -343,7 +352,34 @@
 			        <div id="pagination"></div>
 			    </div>
 			</div>
+			
+			<div>
+			<div id="class_length"><%=al.size() %></div>
+			    <section>
+	    	<div id="data-container">
+	    	<table>
+				<tr class="class_list">
+					<th>순번</th>
+					<th>강의명</th>
+					<th>주소</th>
+					<th>비용</th>
+				</tr>
+
+				<%for(ClassVO vo : al){ %>
+				<tr class="class_list">
+					<td class="class_list" id="class_seq"><%=vo.getC_seq() %></td>
+					<td class="class_list" id="class_name"><%=vo.getC_name() %></td>
+					<td class="class_list" id="class_location"><%=vo.getC_location() %></td>					
+					<td class="class_list" id="class_pay"><%=vo.getC_pay() %></td>
+				</tr>
+				<%} %>
+			</table>
+		</div>
+		
+	</section>
+			</div>
             
+        </div>
         </div>
     </section>
     <!-- Product Section End -->
@@ -415,6 +451,9 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+	<div id = 'x' style = 'display:none'></div>
+	<div id = 'y' style = 'display:none'></div>
+	<div id = 'distance' ></div>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -431,7 +470,15 @@
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a702c7fd840f10be902e425fe276119&libraries=services,clusterer,drawing"></script>
-	<script charset="utf-8">
+	<script  type="text/javascript" charset="utf-8">
+	// 주소로 좌표를 검색합니다
+	$('#mapSearch').on('click',function(){
+		console.log("test");
+		let address = $("#sample6_address").val();
+		console.log(address);
+		geocoder.addressSearch(address, info(null, null));
+	});
+	
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
 			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -442,88 +489,201 @@
 		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 		var map = new kakao.maps.Map(mapContainer, mapOption);
 		
+		//주소 좌표 변환객체 geocoder
 		var geocoder = new kakao.maps.services.Geocoder();
-
-		// 주소로 좌표를 검색합니다
 		
+		let x = document.getElementById('x'); // 
+		let y = document.getElementById('y'); 
 		
-		function nearClassSearch(){
+		var myCoords = null;
+		var classCoords = null;
 		
+		let classDistance = document.getElementById('distance');
 		
-
-		
-		var obj = null;
-		
-		var index = [];
-		
-		$.ajax({
-			type : "POST",
-			url : "NearSearchClass",
-			dataType : "json",
-			contentType: "application/json; charset=utf-8",
-			success : function(result){
+		function info(result, status){
+			return function(result, status){
 				
-				obj = result;
-				
-				index = []; // build the index
-				
-				for (var x in obj) {
-					index.push(x); 
-				} // sort the index 
-				index.sort(function (a, b) {
-					return a == b ? 0 : (a > b ? 1 : -1); 
-				});
-				
-			},
-			error : function(){
-				
+				   if (status === kakao.maps.services.Status.OK) {
+				        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+				        
+				        // 결과값으로 받은 위치를 마커로 표시합니다
+				        var marker = new kakao.maps.Marker({
+				            map: map,
+				            position: coords
+				        });
+				        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+				        map.setCenter(coords);
+				        nearClassSearch();
+				    } 
+				   
 			}
 			
-				
-		})
-		
-		for(let i; i < index.length; i++){
-		
-		let classAddress = obj.index[i]
-		
-		let nearClass = []
-		
-		geocoder.addressSearch(address, function(result, status) {		    
-
-		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-		        
-		        console.log(result[0].x)
-		     })
-		
 		}
+		//console.log(aaa);
 		
-		let address = $("#sample6_address").val()
-		
-		geocoder.addressSearch(address, function(result, status) {
-			
-			
 		    // 정상적으로 검색이 완료됐으면 
-		     if (status === kakao.maps.services.Status.OK) {
+		      /*   x.innerHTML = result[0].x;
+		        y.innerHTML = result[0].y;
+		        
+		        
+				myCoords = { 
+					    latitude :   y.innerHTML,//위도
+					    longitude :  x.innerHTML //경도
+					};
+*/
+		        
 
+		  /*    if (status === kakao.maps.services.Status.OK) {
 		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 		        
-		        console.log(result[0].x)
-		        
-		        console.log(coords)
-
 		        // 결과값으로 받은 위치를 마커로 표시합니다
 		        var marker = new kakao.maps.Marker({
 		            map: map,
 		            position: coords
 		        });
-
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
-		    } 
-		});
+		        nearClassSearch();
+		    }  */
 		
 		
+			/* function geo(){
+				let address = $("#sample6_address").val()
+				geocoder.addressSearch(address, info(null, null) {
+			    // 정상적으로 검색이 완료됐으면 
+			      /*   x.innerHTML = result[0].x;
+			        y.innerHTML = result[0].y;
+			        
+			        
+					myCoords = { 
+						    latitude :   y.innerHTML,//위도
+						    longitude :  x.innerHTML //경도
+						};
+ */
+			        
+
+			  /*    if (status === kakao.maps.services.Status.OK) {
+			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			        
+			        // 결과값으로 받은 위치를 마커로 표시합니다
+			        var marker = new kakao.maps.Marker({
+			            map: map,
+			            position: coords
+			        });
+			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			        map.setCenter(coords);
+			        nearClassSearch();
+			    }  */
+		
+		
+		
+			function computeDistance(startCoords, destCoords) {
+			    var startLatRads = degreesToRadians(startCoords.latitude);
+			    var startLongRads = degreesToRadians(startCoords.longitude);
+			    var destLatRads = degreesToRadians(destCoords.latitude);
+			    var destLongRads = degreesToRadians(destCoords.longitude);
+
+			    var Radius = 6371; //지구의 반경(km)
+			    var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) +Math.cos(startLatRads)* Math.cos(destLatRads)*Math.cos(startLongRads - destLongRads))* Radius;
+
+			    return distance;
+			}
+
+			function degreesToRadians(degrees) {
+			    radians = (degrees * Math.PI)/180;
+			    return radians;
+			}
+		
+		
+		function nearClassSearch(){
+		     var obj = null;
+			 var index = [];
+			 	
+			 	let myXPoint = x.innerHTML
+			 	let myYPoint = y.innerHTML
+			 	let j = 0;
+			 	let nearClass = []
+				$.ajax({
+					type : "POST",
+					url : "NearSearchClass",
+					dataType : "json",
+					contentType: "application/json; charset=utf-8",
+					success : function(result){
+						obj = result;
+						 // build the index
+						for (var x in obj) {
+							index.push(x); 
+						}
+						// sort the index 
+						index.sort(function (a, b) {
+							return a == b ? 0 : (a > b ? 1 : -1); 
+						});
+						/* for문 start */	
+						for(j = 0; j < index.length; j++){
+							let classAddress = obj[index[j]];
+							geocoder.addressSearch(classAddress, info(null, null)); /* {
+							        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+							        classCoords = { 
+										    latitude : result[0].y,  //위도
+										    longitude : result[0].x  //경도
+										};
+							        var distance = computeDistance(myCoords, classCoords)
+							        
+									if(distance <= 3){
+										nearClass.push(index[j]);
+									}
+							       
+						}) */
+						
+						}
+						
+						/* for문 end */	
+						let temp2 = function(){
+							$.ajax({
+							url : 'selectDistClass',
+							data : {data : nearClass[0]},
+							success : function(){
+								console.log('성공');
+							},
+							error:function(){
+								console.log('실패');
+							}
+							});
+						}
+						
+						/*let a = document.getElementById('class_length').innerHTML
+						
+							
+						let class_seq = $('#class_seq')
+						let class_name = $('#class_name')
+						let class_location = $('#class_location')
+						let class_pay = $('#class_pay')
+							
+							
+							let classList = new Array();
+						
+						for(let i = 0; i < class_seq.length; i++){
+							
+							let data = new Object()
+							data.seq = $(class_seq[i]).text()
+							data.name = $(class_name[i]).text()
+							data.location = $(class_location[i]).text()
+							data.pay = $(class_pay[i]).text()
+							classList.push(data)
+						
+						}      
+						console.log(classList)*/
+					},
+					error : function(){
+						
+					}
+					
+						
+				});
+				
 		}
+		
+		
 		
 		
 	</script>

@@ -43,7 +43,7 @@ public class NearSearchClass extends HttpServlet {
 
 
 
-			System.out.println(jsonObject);
+			
 			PrintWriter out = response.getWriter();
 			out.print(jsonObject);
 			
