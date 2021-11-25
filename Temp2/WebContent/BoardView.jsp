@@ -58,18 +58,13 @@ body {
 .board_date {
 
 	font-size : 10pt;
-
 }
 
-.board_content {
-
-	color : #444343;
-
-	font-size : 12pt;
-
-	margin : 10pt;
-
+.btn{
+	background-color: #FF7F50;
+	color: #fff;
 }
+
 
 .board_tag {
 
@@ -87,6 +82,9 @@ span{
 }
 p{
 	margin-bottom: 10px;
+}
+.btn-primary{
+	border-color: #FF7F50;
 }
 
 </style>
@@ -116,7 +114,7 @@ p{
     <!-- 중간 배너 끝 -->
 	<article>
 		<div class="container" role="main">
-			<div class="bg-white rounded shadow-sm">
+			<div class="bg-white rounded shadow-sm" style="padding-bottom: 10px;">
 				<div class="board_title"> 제목이 한 번 길어보자~~~~~~~~~~~
 				
 					<!-- 아이디 날짜 삭제할 때  -->
@@ -135,11 +133,12 @@ p{
 				
 				
 			<div class="board_tag">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용</div>
+			<button type="button" class="btn btn-sm btn-primary" style="margin-left: 5px;">첨부파일 다운로드</button>
 			
 			<div style=" float: right; padding-right: 5px;">
-				<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
+				<button type="button" class="btn btn-sm btn-primary">수정</button>
+				<button type="button" class="btn btn-sm btn-primary">삭제</button>
+				<button type="button" class="btn btn-sm btn-primary" >목록</button>
 			</div>
 			</div>
 		</div>
@@ -205,30 +204,9 @@ p{
     </div>
     </div>
 <!-- 댓글 한마디 끝-->
-  
 	</article>
 
 
-<div class="container">
-			
-			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
-				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
-				
-				<div class="media text-muted">
-        <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
-                <span class="d-block">
-            <strong class="text-gray-dark">아이디</strong>
-            <span class="board_date board_info_box">2021-11-25</span>
-            <br>
-            <span>내용내용내용나나나나나나나나나나나나나</span>
-            <span style="font-size: 9pt; padding-left: 10px;">
-            <a href="#">수정</a>
-            <a href="#">삭제</a>
-            <a href="#">관리</a>
-        </span>
-        </span>
-        </p>
-        </div>
 
 
 
