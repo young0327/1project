@@ -160,7 +160,7 @@ p{
         <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
                 <span class="d-block">
             <strong class="text-gray-dark">아이디</strong><br>
-            <span>내용내용내용나나나나나나나나나나나나나</span>
+            <span>내용내용내용나나나나나나나나나나나나ㅇㅇ나</span>
             <span style="font-size: 9pt; padding-left: 10px;">
             <a href="#">수정</a>
             <a href="#">삭제</a>
