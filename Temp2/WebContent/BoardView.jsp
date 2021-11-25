@@ -144,7 +144,9 @@ p{
 				<div class="media text-muted">
         <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
                 <span class="d-block">
-            <strong class="text-gray-dark">아이디</strong><br>
+            <strong class="text-gray-dark">아이디</strong>
+            <span class="board_date board_info_box">2021-11-25</span>
+            <br>
             <span>내용내용내용나나나나나나나나나나나나나</span>
             <span style="font-size: 9pt; padding-left: 10px;">
             <a href="#">수정</a>
@@ -154,12 +156,14 @@ p{
         </span>
         </p>
         <!-- 댓글 한마디 끝-->
-        
+       
         <!-- 댓글 한마디-->
     </div><div class="media text-muted">
         <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
                 <span class="d-block">
-            <strong class="text-gray-dark">아이디</strong><br>
+            <strong class="text-gray-dark">아이디</strong>
+            <span class="board_date board_info_box">2021-11-25</span>
+            <br>
             <span>내용내용내용나나나나나나나나나나나나ㅇㅇ나</span>
             <span style="font-size: 9pt; padding-left: 10px;">
             <a href="#">수정</a>
@@ -169,29 +173,11 @@ p{
         </span>
         </p>
     </div>
+    </div>
 <!-- 댓글 한마디 끝-->
-
-				<div class="border-bottom">
-				<span>나나나나나나나ㅏ나나나나나나ㅏ나나나ㅏ나나나나</span>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">수정</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">삭제</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">관리</button>
-				</div>
-				<div class="border-bottom">
-				<span>이제 그만하자 집에 가고싶다</span>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">수정</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">삭제</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">관리</button>
-				</div>
-				<div class="border-bottom">
-				<span>현재 시간 9시가 다 되어 갑니다</span>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">수정</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">삭제</button>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">관리</button>
-				</div>
-			</div> 
+  
 	</article>
-</div>
+
 
 
 
