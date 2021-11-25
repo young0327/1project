@@ -1,3 +1,6 @@
+<%@page import="Model_Board.BoardVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model_Board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -53,13 +56,15 @@
     align-items: center;
     padding: 40px 0 130px;
 }
-.btn-success{
-		background-color: rgb(255 93 0 / 25%);
-		border-color: white;
-}
 	
 </style>
 <body>
+	<%
+	BoardDAO dao = new BoardDAO();
+	ArrayList<BoardVO> al = dao.showArticle();
+
+%>
+
 <div>
         <jsp:include page="../header.jsp" flush="true"></jsp:include>
     </div>
@@ -110,27 +115,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td type="button">제목제목</td>
-                    <td>작성자작성자</td>
-                    <td>2021.11.23</td>
-                    <td>조회수는10</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>제목제목</td>
-                    <td>작성자작성자</td>
-                    <td>2021.11.23</td>
-                    <td>조회수는10</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>제목제목</td>
-                    <td>작성자작성자</td>
-                    <td>2021.11.23</td>
-                    <td>조회수는10</td>
-                </tr>
+ 	<%for(BoardVO vo : al){ %>
+
+	<tr>
+		<td><%=vo.getArticle_seq() %></td>
+		<td><a href="../HitCountBoard?num=<%=vo.getArticle_seq()%>"><%=vo.getArticle_subject() %></a></td>
+		<td><%=vo.getNick() %></td>
+		<td><%=vo.getReg_date() %></td>
+		<td><%=vo.getCnt() %></td>
+	</tr>
+	<%} %>
             </tbody>
         </table>
         <hr/>
@@ -140,7 +134,7 @@
                                 <input type="text" placeholder="Search...">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
-        						<a class="btn btn-success" style="margin-left: 299px">글쓰기</a>
+        						<a href="../boardWrite.jsp" class="btn btn-default pull-right" style="margin-left: 299px">글쓰기</a>
                         </div>
 
         

@@ -27,7 +27,7 @@ public class WriteBoard extends HttpServlet {
 		
 		try{
 		// post방식 인코딩
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		
 		//1. request 객체
 		//2. savePath(저장경로)
@@ -59,13 +59,10 @@ public class WriteBoard extends HttpServlet {
 		// 따라서 인코딩을 진행해야함! 인코딩(문자 -> 코드)
 		// URLEncoder.encode(인코딩할 값, 인코딩 방식)
 		String file1 = null;
-		String file2 = null;
 		if(multi.getFilesystemName("file1") !=null) {
 			file1 = URLEncoder.encode(multi.getFilesystemName("file1"), "euc-kr");
 		}
-		if(multi.getFilesystemName("file2") !=null) {
-			file2 = URLEncoder.encode(multi.getFilesystemName("file2"), "euc-kr");
-		}
+
 		String content = multi.getParameter("content");
 		
 
@@ -73,7 +70,7 @@ public class WriteBoard extends HttpServlet {
 		
 		BoardDAO dao = new BoardDAO();
 		
-		int cnt = dao.writeArticle(title, content, file1, file2, writer);
+		int cnt = dao.writeArticle(title, content, file1, writer);
 		
 		UserDAO dao2 = new UserDAO();
 		
@@ -95,7 +92,7 @@ public class WriteBoard extends HttpServlet {
 
 		if(cnt > 0) {
 			System.out.println("파일 업로드 성공!");
-			response.sendRedirect("boardMain.jsp");
+			response.sendRedirect("Board/BoardList.jsp");
 		}else {
 			System.out.println("파일 업로드 실패!");
 		}

@@ -206,5 +206,42 @@ public class CommentDAO {
 		
 		
 	}
+	
+	public int deleteAllComment(int article_seq) {
+		
+		int cnt = 0;
+		
+		try {
+			get_conn();
+			
+			//3. 실행한 sql 정의
+			String sql = "delete from t_comment where article_seq = ?";
+			
+			//4. 실행 객체 생성(PreparedStatement)
+			pst = conn.prepareStatement(sql);
+			//-> SQLException -> sql 정의가 제대로 되어있지 않을 때
+			
+			//5. 바인드 변수(?) 채우기
+			pst.setInt(1, article_seq);
+			
+			//6. sql 실행
+			//executeUpdate(): update, insert, delete(테이블 상에 변화 o) -> int
+			//executeQuery(): select(테이블 상에 변화x) -> ResultSet(데이터)
+			cnt = pst.executeUpdate();
+			
+
+			
+		}catch(Exception e) { //try 에서 예외 상황이 발생한 경우
+			e.printStackTrace(); //예외상황이 발생순서대로 출력
+		}finally { //try에서 예외상황이 발생하던지/하지않던지 간에 무조건 마지막에 실행
+			close();
+		}
+		
+		return cnt;
+		
+		
+		
+		
+	}
 		
 }

@@ -1,4 +1,5 @@
-<%@page import="Model_Comment.*"%>
+<%@page import="Model_User.UserDAO"%>
+<%@page import="Model_Comment.CommentVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model_Comment.CommentDAO"%>
 <%@page import="java.net.URLDecoder"%>
@@ -36,20 +37,15 @@
 	String currentUser = vo2.getId();
 	String writer = vo.getU_id();
 	
+	UserDAO daoUser = new UserDAO();
+	String currentNick = daoUser.selectOne(currentUser).getNick();
+	
 	String file1 = vo.getFile1();
-	String file2 = vo.getFile2();
 	String file1Name = null;
-	String file2Name = null;
 	if(file1 != null){
 		file1Name = URLDecoder.decode(file1, "euc-kr");
 	}else{
 		file1Name = "파일없음";
-	}
-	
-	if(file2 != null){
-		file2Name = URLDecoder.decode(file2, "euc-kr");
-	}else{
-		file2Name = "파일없음";
 	}
 	
 	CommentDAO daoComment = new CommentDAO();
@@ -77,11 +73,6 @@
                   <%}else{ %>
                   <td colspan="2"><button>다운로드1</button><span>  <%=file1Name %></span></td>
                   <%} %>
- 				<%if(file2 != null){ %>
-                  <td colspan="2"><a href="fileUpload/<%=vo.getFile2()%>" download><button>다운로드2</button></a><span>  <%=file2Name %></span></td>
-                  <%}else{ %>
-                  <td colspan="2"><button>다운로드2</button><span>  <%=file2Name %></span></td>
-                  <%} %>
 
 
                </tr>
@@ -91,7 +82,7 @@
                   </td>
                </tr>
                <tr>
-                  <td colspan="2"><a href="boardMain.jsp"><button>뒤로가기</button></a></td>
+                  <td colspan="2"><a href="Board/BoardList.jsp"><button>뒤로가기</button></a></td>
                   <%if(currentUser.equals(writer) || currentUser.equals("admin")){ %>
                   <td colspan="2"><button id="update" class=<%=vo.getArticle_seq() %>>수정하기</button></td>
                   <td colspan="2"><button id="delete" class=<%=vo.getArticle_seq() %>>삭제하기</button></td>
@@ -106,7 +97,7 @@
          	<tr>
          	<td width="150">
 	         	<div>
-	         		작성자 : <%=currentUser%>
+	         		<%=currentNick%>
 	         	</div>
 	         </td>
 	         <td width="550">
@@ -136,6 +127,7 @@
 				<tr class="comment">
 					<td id="comment_seq"><%=voComment.getComm_seq() %></td>
 					<td id="commentWriter_id"><%=voComment.getU_id() %></td>
+					<td id="commentWriter_nick"><%=currentNick %></td>					
 					<td id="comment_content"><%=voComment.getComm_content() %></td>
 					<td id="comment_date"><%=voComment.getReg_date() %></td>
 				</tr>
@@ -155,6 +147,7 @@
 	let comment_ids = $('.comment > #commentWriter_id')
 	let comment_contents = $('.comment > #comment_content')
 	let comment_dates = $('.comment > #comment_date')
+	let comment_nicks = $('.comment > #commentWriter_nick')
 	
 	let commentList = new Array();
 	
@@ -165,6 +158,7 @@
 		let data = new Object()
 		data.seq = $(comment_nums[i]).text()
 		data.id = $(comment_ids[i]).text()
+		data.nick = $(comment_nicks[i]).text()
 		data.content = $(comment_contents[i]).text()
 		data.date = $(comment_dates[i]).text()
 		commentList.push(data)
@@ -172,7 +166,7 @@
 	}
 	
 	console.log(commentList)
-
+	
 
 $(function () {
     let container = $('#pagination');
@@ -188,7 +182,7 @@ $(function () {
             '<table><tr><th>작성자</th>'+'<th>내용</th>'+'<th>작성일자</th><th></th><th></th></tr>'
 			
             $.each(data, function (index, item) {
-                dataHtml += '<tr><td>'+item.id +'</td><td class = '+item.seq+'>'+item.content+'</td><td>'+item.date+'</td>';
+                dataHtml += '<tr><td>'+item.nick +'</td><td class = '+item.seq+'>'+item.content+'</td><td>'+item.date+'</td>';
                 if($('#comment_id').val() == item.id || $('#comment_id').val() == "admin"){
                 	dataHtml += '<td class="button"><input type="button" onclick = "updateComment()" class= "'+item.seq+'" value="수정"></td>'
                 	+'<td class="button"><input type="button" value= "삭제" onclick = "deleteComment()" class= '+item.seq+'></td>'
@@ -302,7 +296,7 @@ $(function () {
 		
 		let num = updateBtn.classList.item(0)
 		
-		location.href = "updateBoard.jsp?num="+num
+		location.href = "boardUpdate.jsp?num="+num
 		
 
 	}
@@ -327,10 +321,10 @@ $(function () {
 		console.log(obj);
 		
 		$.ajax({
-			url : '/GCAP/DeleteBoard_Temp',
+			url : 'DeleteBoard',
 			data : obj,
 			success : function(){
-				window.location.href = "boardMain.jsp"
+				window.location.href = "Board/BoardList.jsp"
 			},
 			error : function(){
 				
