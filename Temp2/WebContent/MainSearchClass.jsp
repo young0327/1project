@@ -220,7 +220,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/watch.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/index.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
