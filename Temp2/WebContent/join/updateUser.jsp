@@ -193,9 +193,9 @@
         </div> 
         <!-- wrapper -->
     <script src="join.css"></script>
-    <script src="/pro/js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" charset="UTF-8"></script>
-    <script src="/pro/js/findAddress.js"></script>
-    <script src="/pro/js/updateUser.js"></script>
+    <script src="../js/findAddress.js"></script>
+    <script src="../js/updateUser.js"></script>
     </body>
 </html>

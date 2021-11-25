@@ -201,7 +201,7 @@ UserDAO dao = new UserDAO();
 									<li><a href="./blog-details.html">Blog Details</a></li>
 								</ul></li> -->
 							<li><a href="./blog.html">전체클래스</a></li>
-							<li><a href="Board/BoardList.jsp">커뮤니티</a></li>
+							<li><a id = "community" href="#">커뮤니티</a></li>
 						</ul>
 					</nav>
 
@@ -215,15 +215,9 @@ UserDAO dao = new UserDAO();
 						<div class="header__top__right__auth">
 							<a href="join/join.html" class="a_margin"> 회원가입</a>
 						</div>
+						<input id="id_check" value="0" style="display:none;">
 					<%}else { %>
-						<%if(vo.getId().equals("admin")){ %>
-							<div class="header__top__right__auth">
-							<span><a href="userList.jsp" class="a_margin"> 회원리스트보기</a></span>
-							</div>
-							<div class="header__top__right__auth">
-								<a href="LogoutService" class="a_margin"> Logout</a>
-							</div>
-						<%}else{ %>
+
 
 							<div class="header__top__right__auth">
 								<a href="join/updateUser.jsp" class="a_margin"> 회원정보수정</a>
@@ -231,8 +225,9 @@ UserDAO dao = new UserDAO();
 							<div class="header__top__right__auth">
 								<a href="LogoutService" class="a_margin"> Logout</a>
 							</div>
+							<input id="id_check" value="1" style="display:none;">
 						<%} %>
-					<%} %>
+				
 					</div>
 				</div>
 
@@ -910,6 +905,20 @@ UserDAO dao = new UserDAO();
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	
+	<script>
+		
+	 $('#community').on('click', function(){
+		
+		 if($('#id_check').val()==0){
+			 alert('로그인 후 이용해주세요.')
+		 }else{
+			 window.location.href = "Board/BoardList.jsp"
+		 }
+		 
+	 })
+	
+	</script>
 
 
 

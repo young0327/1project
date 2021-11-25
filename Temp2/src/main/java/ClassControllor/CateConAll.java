@@ -31,7 +31,7 @@ public class CateConAll extends HttpServlet {
 		session.setAttribute("type", type );
 		
 
-		response.sendRedirect("/pro/MainSearchClass.jsp");
+		response.sendRedirect("MainSearchClass.jsp");
 	
 	
 	

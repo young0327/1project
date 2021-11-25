@@ -31,9 +31,8 @@
 </head>
 <body>
 <%
-	ClassDAO dao = new ClassDAO();
-	ArrayList<ClassVO> al = dao.selectAll();
-	
+ClassDAO2 dao = new ClassDAO2();
+	ArrayList<ClassVO2> al = dao.selectAll();
 %>
 <h1>강의관리 페이지</h1>
 
@@ -56,7 +55,9 @@
 		<th>수강료</th>
 		<th>상태</th>
 	</tr>
-	<%for(ClassVO vo : al){ %>
+	<%
+	for(ClassVO2 vo : al){
+	%>
 	
 	<tr>
 		<td><input type="checkbox" class="chkbox" id=<%=vo.getC_seq() %>></td>

@@ -184,7 +184,7 @@ ArrayList<ClassVO> al = dao.Search(cate);
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="/pro/MainSearchClass.jsp">
+                            <form action="MainSearchClass.jsp">
                                 <div class="hero__search__categories">
                                     카테고리
                                     <span class="arrow_carrot-down"></span>
@@ -261,7 +261,7 @@ ArrayList<ClassVO> al = dao.Search(cate);
                     	
                          <div class="product__item">  
                              <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                         <a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px"></a>	
+                         <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px"></a>	
                                  <ul class="product__item__pic__hover">
                                      <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                      <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -269,7 +269,7 @@ ArrayList<ClassVO> al = dao.Search(cate);
                                  </ul>
                              </div>
                              <div class="product__item__text">
-                                 <h5><a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
+                                 <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
                                  <h6>시작일자 : <%=vo.getC_start_dt() %></h6>
                                  <h6>종료일자 : <%=vo.getC_end_dt() %></h6>
                              </div>
