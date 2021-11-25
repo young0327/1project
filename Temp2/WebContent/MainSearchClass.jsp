@@ -294,7 +294,7 @@ al = dao.MainSearch(Searchs);
                          <a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px;"></a>	
                            
                              <div class="product__item__text">
-                                 <h5><a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
+                                 <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
                                  <h6>시작일자 : <%=vo.getC_start_dt() %></h6>
                                  <h6>종료일자 : <%=vo.getC_end_dt() %></h6>
                              </div>
