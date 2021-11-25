@@ -353,7 +353,7 @@
 				</tr>
 
 				<%for(ClassVO vo : al){ %>
-				<tr class="class_list">
+				<tr class="class_list" id=<%=vo.getC_seq() %>>
 					<td class="class_list" id="class_seq"><%=vo.getC_seq() %></td>
 					<td class="class_list" id="class_name"><%=vo.getC_name() %></td>
 					<td class="class_list" id="class_location"><%=vo.getC_location() %></td>					
@@ -463,13 +463,15 @@
 	
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			center : new kakao.maps.LatLng(35.1106066178919, 126.87748063846814), // 지도의 중심좌표
 			level : 3
 		// 지도의 확대 레벨
 		};
 
 		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		
 		
 		//주소 좌표 변환객체 geocoder
 		var geocoder = new kakao.maps.services.Geocoder();
@@ -490,7 +492,7 @@
 		     if (status === kakao.maps.services.Status.OK) {
 
 		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-		        
+		        /*
 		        x.innerHTML = result[0].x;
 		        y.innerHTML = result[0].y;
 		        
@@ -498,23 +500,37 @@
 					    latitude :   y.innerHTML,//위도
 					    longitude :  x.innerHTML //경도
 					};
-
+				
+				*/
+				var imageSrc = 'img/myPoint.png', // 마커이미지의 주소입니다    
+			    imageSize = new kakao.maps.Size(35, 51), // 마커이미지의 크기입니다
+			    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다
+				
+			    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+			    
 		        // 결과값으로 받은 위치를 마커로 표시합니다
 		        var marker = new kakao.maps.Marker({
-		            map: map,
-		            position: coords
+		            /*map: map,*/
+		            position: coords,
+		            image: markerImage
 		        });
-
+		        marker.setMap(map); 
 		        // 인포윈도우로 장소에 대한 설명을 표시합니다
+		        /*
 		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0; background-color: #007bff; font-size: .875rem;border-radius: 0.2rem; border: 1px solid #dddddd; color: #fff;">나의 위치</div>'
+		            content: '<div style="width:150px;text-align:center;padding:6px 0; background-color: #ff914d; font-weight: bold; font-size: .875rem;border-radius: 0.2rem; border: 1px solid #dddddd; color: #fff;">나의 위치</div>'
 		        });
-		    
+		    	
 		        
 		        infowindow.open(map, marker);
-
+*/
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
+	
+		     
+		        // 데이터를 가져오기 위해 jQuery를 사용합니다
+		        // 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
+
 		    } 
 		});
 		}
@@ -542,28 +558,7 @@
 */		
 	/*	
 		function nearClassSearch(){
-		     var obj = null;
-			 var index = [];
-			 	
-			 	let myXPoint = x.innerHTML
-			 	let myYPoint = y.innerHTML
-			 	let j = 0;
-			 	let nearClass = []
-				$.ajax({
-					type : "POST",
-					url : "NearSearchClass",
-					dataType : "json",
-					contentType: "application/json; charset=utf-8",
-					success : function(result){
-						obj = result;
-						 // build the index
-						for (var x in obj) {
-							index.push(x); 
-						}
-						// sort the index 
-						index.sort(function (a, b) {
-							return a == b ? 0 : (a > b ? 1 : -1); 
-						});
+
 						/* for문 start */	
 						/*for(j = 0; j < index.length; j++){
 							let classAddress = obj[index[j]];
@@ -588,24 +583,156 @@
 						
 
 				    
-						console.log(classList)
-					},
-					error : function(){
-						
-					}
-					
-						
-				});
+
 				
 		}
 		
 		*/
 	
-		let json = {}
+		let json = {a:{x:1,y:2}}
+		console.log()
 		let arr = []
 		
+		
+		
+		
+		
+		$("#mapSearch").on('click', function(){
+			
+			 var obj = null;
+			 var index = [];
+			 	
+
+			 	let nearClass = []
+			 	
+				$.ajax({
+					type : "POST",
+					url : "NearSearchClass",
+					dataType : "json",
+					contentType: "application/json; charset=utf-8",
+					async:false,
+
+					success : function(result){
+						obj = result;
+						console.log(result+"내부")
+						 // build the index
+						for (var x in obj) {
+							index.push(x); 
+						}
+						// sort the index 
+						index.sort(function (a, b) {
+							return a == b ? 0 : (a > b ? 1 : -1); 
+						});
+						
+						
+						
+						for(let i =0 ; i<index.length;i++){
+							
+							let classAddress = obj[index[i]];
+						
+						geocoder.addressSearch(classAddress, function(result, status) {
+					
+						    // 정상적으로 검색이 완료됐으면 
+						     if (status === kakao.maps.services.Status.OK) {
+
+						        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+						        // 결과값으로 받은 위치를 마커로 표시합니다
+						        var marker = new kakao.maps.Marker({
+						            map: map,
+						            position: coords,
+						            clickable: true
+						            
+						        });
+						        
+						        marker.setMap(map);
+
+							     // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+							     var iwContent = '<div style="padding:5px;">'+index[i]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+							         iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+	
+							     // 인포윈도우를 생성합니다
+							     var infowindow = new kakao.maps.InfoWindow({
+							         content : iwContent,
+							         removable : iwRemoveable
+							     });
+	
+							     // 마커에 클릭이벤트를 등록합니다
+							     kakao.maps.event.addListener(marker, 'click', function() {
+							           // 마커 위에 인포윈도우를 표시합니다
+							           infowindow.open(map, marker);
+							           document.getElementById(index[i]).scrollIntoView();
+							           document.getElementById(index[i]).style.background = "rgba(253,146,77,0.3)"
+							           setTimeout(() => document.getElementById(index[i]).style.background = "rgba(1,1,1,0)" , 3000);
+							     });
+						        
+
+
+						    } 
+						}); 
+						}
+						
+						
+					},					
+					
+					error: function(){
+						
+					}
+				})
+   
+		})
+	
+		
+	/*
 	$("#mapSearch").on('click', function(){
 		
+	     var obj = null;
+		 var index = [];
+		 	
+
+		 	let nearClass = []
+		 	function ajaxCall(){
+			$.ajax({
+				type : "POST",
+				url : "NearSearchClass",
+				dataType : "json",
+				contentType: "application/json; charset=utf-8",
+				async:false,
+				error: function(){
+					
+				},
+				success : function(result){
+					obj = result;
+					console.log(result+"내부")
+					 // build the index
+					for (var x in obj) {
+						index.push(x); 
+					}
+					// sort the index 
+					index.sort(function (a, b) {
+						return a == b ? 0 : (a > b ? 1 : -1); 
+					});
+					
+				},
+				complete: function(result){
+				 	console.log(index+"인덱")
+				 	console.log(obj+"오브")
+				 	for(j = 0; j < index.length; j++){
+						let classAddress = obj[index[j]];
+						console.log(classAddress)
+				 	}
+				}
+					
+				});
+					
+			}
+
+
+		 	
+
+		/*
+
+		for(let i =0; i < )
 		$.ajax({
 			
 			url : "http://api.vworld.kr/req/address?service=address&request=getcoord&version=2.0&crs=epsg:4326&address=%ED%9A%A8%EB%A0%B9%EB%A1%9C72%EA%B8%B8%2060&refine=true&simple=false&format=json&type=road&key=72F6DE55-2E9D-37F3-AC27-F3DD9C64508E",
@@ -625,7 +752,7 @@
 		
 		
 	})
-			
+		*/	
 			
 			
 			
