@@ -124,7 +124,7 @@ p{
 					<span class="board_author">아이디</span><span class="board_date">2021-11-25</span>
 				</div>
 				<div class="board_content"></div>
-				<div class="board_tag">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용</div>
+				<div class="board_tag">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용</div>
 			</div>
 			<div style=" float: right; padding-right: 5px;">
 				<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
