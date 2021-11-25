@@ -25,7 +25,7 @@
 <style>
 body {
 
-	padding-bottom: 50px;
+	padding-bottom: 200px;
 
 }
 
@@ -96,6 +96,7 @@ p{
     </div>
 	<!-- 헤더 끝 -->
 	
+	
 	<!-- 중간 배너 -->
 	 <section class="breadcrumb-section set-bg" data-setbg="img/new/realreal.png">
         <div class="container">
@@ -112,16 +113,20 @@ p{
         </div>
     </section>
     <!-- 중간 배너 끝 -->
+    
+    
+    <!-- 제목 내용 부분 -->
 	<article>
 		<div class="container" role="main">
 			<div class="bg-white rounded shadow-sm" style="padding-bottom: 10px;">
-				<div class="board_title"> 제목이 한 번 길어보자~~~~~~~~~~~
+				<div class="board_title" style="margin-top: 50px;"> 제목이 한 번 길어보자~~~~~~~~~~~
 				
 					<!-- 아이디 날짜 삭제할 때  -->
 				<div class="board_info_box" style="float: right;">
 					<span class="board_author">아이디</span><span class="board_date">2021-11-25</span>
 				</div>
 				<!-- 여기까지 통으로 날리기 -->
+				
 				
 				</div>
 				<hr>
@@ -142,38 +147,60 @@ p{
 			</div>
 			</div>
 		</div>
-<!-- Reply Form {s} -->
-			<div class="container">
-			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
-					<div style="padding-bottom:8px;">
-						<h6 class="pb-2 mb-0 border-bottom">닉네임</h6>
-					</div>
-					<div class="row">
-					<div class="col-sm-10" style="padding-top:10px">
-						<input type="text" path="content" id="content" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></input>
-					</div>
-					<div class="col-sm-2">
-						<button type="button" class="btn btn-sm btn-primary" id="btnReplySave" style="width: 100%; margin-top: 10px"> 등록 </button>
-					</div>
-					</div>
-					
-			</div>
-			</div>
-			<!-- Reply Form {e} -->
+		
+		
+		
+	<!-- 댓글 등록 부분 -->
+		<div class="container">
+		<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
+				<div style="padding-bottom:8px;">
+					<h6 class="pb-2 mb-0 border-bottom">닉네임</h6>
+				</div>
+				<div class="row">
+				<div class="col-sm-10" style="padding-top:10px">
+					<input type="text" path="content" id="content" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></input>
+				</div>
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-sm btn-primary" id="btnReplySave" style="width: 100%; margin-top: 10px"> 등록 </button>
+				</div>
+				</div>	
+		</div>
+		</div>
+	<!-- 댓글 등록 부분 끝 -->
 			
-			<!-- 댓글 한마디-->
-			<div class="container">
 			
-			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
-				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
+			
+	<!-- 댓글 한마디-->
+	<div class="container" style="overflow:auto; height:400px;">
+	<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
+		<h6 class="border-bottom pb-2 mb-0">댓글</h6>
 				
-				<div class="media text-muted">
-        <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
-                <span class="d-block">
-            <strong class="text-gray-dark">아이디</strong>
-            <span class="board_date board_info_box">2021-11-25</span>
+		<div class="media text-muted">
+      <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
+           <span class="d-block">
+          <strong class="text-gray-dark">아이디</strong>
+          <span class="board_date board_info_box">2021-11-25</span>
+          <br>
+          <span>내용내용내용나나나나나나나나나나나나나</span>
+          <span style="font-size: 9pt; padding-left: 10px;">
+          <a href="#">수정</a>
+          <a href="#">삭제</a>
+          <a href="#">관리</a>
+      </span>
+      </span>
+      </p>
+      </div>
+   	<!-- 댓글 한마디 끝-->
+       
+    <!-- 댓글 한마디-->
+    <div class="media text-muted">
+    
+       <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
+        <span class="d-block">
+        <strong class="text-gray-dark">아이디</strong>
+         <span class="board_date board_info_box">2021-11-25</span>
             <br>
-            <span>내용내용내용나나나나나나나나나나나나나</span>
+            <span>내용내용내용나나나나나나나나나나나나ㅇㅇ나</span>
             <span style="font-size: 9pt; padding-left: 10px;">
             <a href="#">수정</a>
             <a href="#">삭제</a>
@@ -181,11 +208,11 @@ p{
         </span>
         </span>
         </p>
-        </div>
-        <!-- 댓글 한마디 끝-->
-       
-        <!-- 댓글 한마디-->
+    </div>
+    <!-- 댓글 한마디 끝-->
     
+    
+    <!-- 댓글 한마디-->
     <div class="media text-muted">
     
         <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
@@ -202,8 +229,54 @@ p{
         </span>
         </p>
     </div>
+    <!-- 댓글 한마디 끝-->
+    
+    
+    <!-- 댓글 한마디-->
+    <div class="media text-muted">
+    
+        <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
+                <span class="d-block">
+            <strong class="text-gray-dark">아이디</strong>
+            <span class="board_date board_info_box">2021-11-25</span>
+            <br>
+            <span>내용내용내용나나나나나나나나나나나나ㅇㅇ나</span>
+            <span style="font-size: 9pt; padding-left: 10px;">
+            <a href="#">수정</a>
+            <a href="#">삭제</a>
+            <a href="#">관리</a>
+        </span>
+        </span>
+        </p>
     </div>
-<!-- 댓글 한마디 끝-->
+    <!-- 댓글 한마디 끝-->
+    
+    <!-- 댓글 한마디-->
+    <div class="media text-muted">
+    
+        <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
+                <span class="d-block">
+            <strong class="text-gray-dark">아이디</strong>
+            <span class="board_date board_info_box">2021-11-25</span>
+            <br>
+            <span>내용내용내용나나나나나나나나나나나나ㅇㅇ나</span>
+            <span style="font-size: 9pt; padding-left: 10px;">
+            <a href="#">수정</a>
+            <a href="#">삭제</a>
+            <a href="#">관리</a>
+        </span>
+        </span>
+        </p>
+    </div>
+    <!-- 댓글 한마디 끝-->
+    
+    
+    		<!-- 자동 스크롤 -->
+			<div style="text-align: center;margin: auto; padding-top: 10px"></div>
+			
+			<!--  자동 스크롤 끝 -->
+    </div>
+
 	</article>
 
 
