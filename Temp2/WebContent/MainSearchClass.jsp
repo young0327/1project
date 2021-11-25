@@ -44,11 +44,31 @@
 
 <body>
 <%
+String type = request.getParameter("type");
+
+ArrayList<ClassVO> al;
+if(type!=null){
+	if(type.equals("뭐든 해보고자 하는 당신은 <참여형>")){
+		type= "참여형";
+	}else if(type.equals("제대로 즐길줄 아는 당신은 <향유형>")){
+		type="향유형";
+	}else if(type.equals("배움에 열정이 넘츠는 당신은 <수강형>")){
+		type="수강형";
+	}
+System.out.println(type);
+ClassDAO dao = new ClassDAO();
+al = dao.TestSearch(type);
+}else{
 String Searchs = request.getParameter("Searchs");
+if(Searchs==null)
+	Searchs="";
+else{
+	
+}
 session.setAttribute("cate",Searchs);
 ClassDAO dao = new ClassDAO();
-
-ArrayList<ClassVO> al = dao.MainSearch(Searchs);
+al = dao.MainSearch(Searchs);
+}
 %>
 
     <!-- Page Preloder -->
@@ -194,7 +214,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="MainSearchClass.jsp">
+                            <form action="/pro/MainSearchClass.jsp">
                                 <div class="hero__search__categories">
                                     카테고리
                                     <span class="arrow_carrot-down"></span>
@@ -220,7 +240,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/index.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -242,7 +262,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
     <div class="filter__item">
                         <div class="row" style="margin-left: 65px; margin-right: 120px;">
                             <div class="filter__sort">
-                            <form action="CateConAll" border="1px,solid,black">
+                            <form action="/pro/CateConAll" border="1px,solid,black">
                         	<strong>위치 | </strong>
                         	동구  <input type="checkbox" name="location" value="동구" class="location">
                         	서구  <input type="checkbox" name="location" value="서구" class="location">
@@ -271,7 +291,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
                     	
                          <div class="product__item">  
                              <div class="product__item__pic">
-                         <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px; margin-left:130px;"></a>	
+                         <a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px; margin-left:130px;"></a>	
                                 <!--  <ul class="product__item__pic__hover">
                                      <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                      <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -279,7 +299,7 @@ ArrayList<ClassVO> al = dao.MainSearch(Searchs);
                                  </ul> -->
                              </div>
                              <div class="product__item__text">
-                                 <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
+                                 <h5><a href="/pro/DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
                                  <h6>시작일자 : <%=vo.getC_start_dt() %></h6>
                                  <h6>종료일자 : <%=vo.getC_end_dt() %></h6>
                              </div>

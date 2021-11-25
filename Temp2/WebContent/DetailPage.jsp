@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<%@page import="ClassModel.*"%>
+<%@page import="ClassModel.ClassVO"%>
+<%@page import="ClassModel.ClassDAO"%>
 <html lang="zxx">
-
+<!-- GIT -->
 <head>
     <meta charset="EUC-KR">
     <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="EUC-KR"%>
@@ -236,7 +237,7 @@ int distnum = dao.DistinctClass(cnum);
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="img/product/draw.jpg" alt="">
+                                src="img/new/kids.jpg" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/pure-julia.jpg"
@@ -309,7 +310,7 @@ int distnum = dao.DistinctClass(cnum);
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">리뷰 <span>(1)</span></a>
+                                    aria-selected="false">리뷰 <span></span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -329,18 +330,31 @@ int distnum = dao.DistinctClass(cnum);
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>김운비</h6>
-                                    <p>인강을 들을ㅠ심적여유가 없어서 신청했는데 와우 넘 좋아요ㅠ <br />
-										1. 찾기편하고, 필수기능만있고, 가독성이 좋음<br />
-
-										2. 쌤이 빠르고,친절하게 답해줌<br />
-										매번 에러날때마다ㅠ친구에게 묻기도ㅠ<br />
-										민망하고 미안했는데 <br />
-										그때 쌤한데 질문할수있어서 얼마나 든든한지ㅠ  <br />
-
-										함수를 알아도ㅠ참으로 사소한 이유로 에러뜨는데ㅠ<br />
-										쌤을 만나서ㅠ 얼마나 다행인지 몰라요ㅠ<br />
-										격하게 추천합니다!!!!!</p>
+                                  <form id="reviewsend">
+                                    <div class= "review">
+                                    <textarea  name = "opinion" rows="50" cols="30" placeholder="후기를 작성 해주세요" style = "height: 100px; width: 100%; resize: none;"></textarea>
+                                    </div>
+                                    <div class = "reviewArea" style= "float:right">
+                                    <span style="width: 125px; height: 40px;">
+	                                    <select name = "star" style="width: 125px; height: 40px">
+		                                    <option value="none">===평점선택===</option>
+		                                    <option value="1">★☆☆☆☆(1점)</option>
+		                                    <option value="2">★★☆☆☆(2점)</option>
+		                                    <option value="3">★★★☆☆(3점)</option>
+		                                    <option value="4">★★★★☆(4점)</option>
+		                                    <option value="5">★★★★★(5점)</option>
+	                                    </select>
+                                    </span>
+                                    <input name = "cnum" style ="display:none" value="<%=vo.getC_seq()%>">
+                                      <span style="width: 125px; height: 40px;"><button value="리뷰 등록" name="reviewbtn" class="reviewbtn" style="width: 125px; height: 40px; background-color:white; border-radius: 15px; border:0.5px">리뷰 등록</button></span>
+                                       
+                                    </div>
+										</form>
+											 <div style ="margin-top:50px"><hr></div>
+									<div style="text-align: center;margin: auto; padding-top: 10px"><h3 style="text-decoration:underline;text-underline-position: under;">후기 목록</h3></div>
+									 <div class = "reviewLists" style="overflow-y:auto; height:400px;">
+									 
+									 </div>
                                 </div>
                             </div>
                         </div>
@@ -351,80 +365,6 @@ int distnum = dao.DistinctClass(cnum);
     </section>
     <!-- Product Details Section End -->
 
-    <!-- Related Product Section Begin -->
-    <section class="related-product">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title related__product__title">
-                        <h2>관련된 클래스</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Related Product Section End -->
 
     <!-- Footer Section Begin -->
@@ -561,7 +501,53 @@ int distnum = dao.DistinctClass(cnum);
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript" src="js/ApplyModal.js" charset="utf-8"></script>
-
+	<script>
+	$('.reviewbtn').click(function(){
+		let reviewdata = $("#reviewsend").serialize();
+		alert(reviewdata);
+		$.ajax({
+			type: 'post',
+			url:'ReviewCon',
+			data:reviewdata,
+			dataType:'json',
+			success : function(){
+				console.log("전송성공")
+			},
+			erorr: function(){
+				console.log("전송실패")
+			}
+		});
+	});
+	
+	$('.reviewLists').ready(function(){
+		let cnum= "<%=vo.getC_seq()%>"
+		$.ajax({
+			type: 'post',
+			url:'loadReviewCon',
+			data:{
+				'cnum' : cnum
+			},
+			dataType:'json',
+			success : function(result){
+				let reviews = result
+				console.log(reviews[0].u_id)
+				for(let i = 0; i<reviews.length;i++){
+							$('.reviewLists').append(
+							'<div style ="display: flex"><span style ="float: left; padding-top:8px"><strong>'+ "아이디:"+reviews[i].u_id +'</strong></span>'
+							+'<span style ="float: left; padding-left:15px"><p>'+ "평점:"+"★".repeat(reviews[i].r_rating)+'</p></span></div>'
+							+'<p style ="float: left">'+reviews[i].r_opinion+'<p>'
+							+'<br>'
+							+'<hr>'
+							)
+				}
+			},
+			erorr: function(){
+				console.log("전송실패")
+			}
+		});
+	});
+	
+	</script>
 </body>
 
 </html>

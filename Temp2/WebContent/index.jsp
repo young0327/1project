@@ -29,7 +29,10 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-
+    <link rel="stylesheet" href="css/TestModal.css" type="text/css">
+    <link rel="stylesheet" href="css/qna.css" type="text/css">
+    <link rel="stylesheet" href="css/TestResult.css" type="text/css">
+    
 <style>
 .a_margin {
 	margin-left: 1rem;
@@ -65,7 +68,7 @@ UserDAO dao = new UserDAO();
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#"><img src="img/logo.png" alt=""></a>
+			<a href="index.jsp"><img src="img/logo.png" alt=""></a>
 		</div>
 		<!--  
         <div class="humberger__menu__cart">
@@ -186,22 +189,22 @@ UserDAO dao = new UserDAO();
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.html"><img src="img/logo.png" alt=""></a>
+						<a href="./index.jsp"><img src="img/index/logooo.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul style="text-align: center;">
-							<li><a href="./shop.html">내 근처 강의</a></li>
-							<li><a href="serch.html">관심성향테스트</a>
+							<li><a href="./shop.jsp">내 근처 강의</a></li>
+							<li><a href="#" id ="modal-open">관심성향테스트</a>
 								<!-- <ul class="header__menu__dropdown">
 									<li><a href="./shop-details.html">Shop Details</a></li>
 									<li><a href="./shoping-cart.html">Shoping Cart</a></li>
 									<li><a href="./checkout.html">Check Out</a></li>
 									<li><a href="./blog-details.html">Blog Details</a></li>
 								</ul></li> -->
-							<li><a href="./blog.html">전체클래스</a></li>
-							<li><a id = "community" href="#">커뮤니티</a></li>
+							<li><a href="MainSearchClass.jsp">전체클래스</a></li>
+							<li><a href="./Board/BoardList.jsp">커뮤니티</a></li>
 						</ul>
 					</nav>
 
@@ -215,9 +218,15 @@ UserDAO dao = new UserDAO();
 						<div class="header__top__right__auth">
 							<a href="join/join.html" class="a_margin"> 회원가입</a>
 						</div>
-						<input id="id_check" value="0" style="display:none;">
 					<%}else { %>
-
+						<%if(vo.getId().equals("admin")){ %>
+							<div class="header__top__right__auth">
+							<span><a href="userList.jsp" class="a_margin"> 회원리스트보기</a></span>
+							</div>
+							<div class="header__top__right__auth">
+								<a href="LogoutService" class="a_margin"> Logout</a>
+							</div>
+						<%}else{ %>
 
 							<div class="header__top__right__auth">
 								<a href="join/updateUser.jsp" class="a_margin"> 회원정보수정</a>
@@ -225,9 +234,8 @@ UserDAO dao = new UserDAO();
 							<div class="header__top__right__auth">
 								<a href="LogoutService" class="a_margin"> Logout</a>
 							</div>
-							<input id="id_check" value="1" style="display:none;">
 						<%} %>
-				
+					<%} %>
 					</div>
 				</div>
 
@@ -305,7 +313,7 @@ UserDAO dao = new UserDAO();
 					<div>
 						<div type="button" class="hero__item set-bg"
 							style="position: relative; z-index: 1;"
-							data-setbg="img/new/ezgif-3-de97db19cb70.gif"
+							data-setbg="img/bnn.jpg"
 							onclick="location.href='GPSClass.html'">
 							<div type="button" class="hero__item set-bg"
 								style="position: relative; z-index: 1;"
@@ -389,11 +397,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-1.jpg">
+							data-setbg="img/index/picic.png">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -407,11 +413,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-2.jpg">
+							data-setbg="img/index/a1.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -425,12 +429,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-3.jpg">
+							data-setbg="img/index/eng1.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-							</ul>
+								
 						</div>
 						<div class="featured__item__text">
 							<h6>
@@ -443,11 +444,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-4.jpg">
+							data-setbg="img/index/han.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -461,11 +460,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-5.jpg">
+							data-setbg="img/index/cr3.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -479,11 +476,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-6.jpg">
+							data-setbg="img/index/nail.png">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -497,11 +492,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-7.jpg">
+							data-setbg="img/index/bubu.png">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -515,11 +508,9 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-8.jpg">
+							data-setbg="img/index/c00k.jpg">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								
 							</ul>
 						</div>
 						<div class="featured__item__text">
@@ -549,13 +540,13 @@ UserDAO dao = new UserDAO();
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
-					<div class="latest-product__text">
+					<div class="latest-product__text" style="position: relative; left: 20px;">
 						<h4>신규강의</h4>
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-1.jpg" alt="">
+										<img src="img/new/ajaja.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
 										<h6>공예</h6>
@@ -563,46 +554,46 @@ UserDAO dao = new UserDAO();
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-2.jpg" alt="">
+										<img src="img/new/kids.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>즐거운 그림책 읽기</h6>
+										<span>11월 25일 OPEN</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-3.jpg" alt="">
+										<img src="img/new/sou.png" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>음치 벗어나기</h6>
+										<span>11월 30일 OPEN</span>
 									</div>
 								</a>
 							</div>
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-1.jpg" alt="">
+										<img src="img/new/photo.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>나만의 인생샷 건지기</h6>
+										<span>12월 5일 OPEN</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-2.jpg" alt="">
+										<img src="img/new/youtube.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>유튜브 컨텐츠 제작</h6>
+										<span>12월 11일 OPEN</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-3.jpg" alt="">
+										<img src="img/new/TES.png" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>나는야 맛감별사</h6>
+										<span>12월 25일 OPEN</span>
 									</div>
 								</a>
 							</div>
@@ -616,54 +607,54 @@ UserDAO dao = new UserDAO();
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-1.jpg" alt="">
+										<img src="img/new/toget.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>공예</h6>
+										<h6>부모님과 같이하는 요리시간</h6>
 										<span>20명 수강중!</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-2.jpg" alt="">
+										<img src="img/new/lag.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>서예로 역사에 빠져들기</h6>
+										<span>18명 수강중!</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-3.jpg" alt="">
+										<img src="img/new/babyy.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>태교시간</h6>
+										<span>10명 수강중!</span>
 									</div>
 								</a>
 							</div>
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-1.jpg" alt="">
+										<img src="img/new/web.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>웹 디자인 마스터</h6>
+										<span>9명 수강중!</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-2.jpg" alt="">
+										<img src="img/new/drum.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>우당탕탕 챙~ 드러머되기</h6>
+										<span>9명 수강중!</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-3.jpg" alt="">
+										<img src="img/new/yoyo.png" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>필라테스 중급반</h6>
+										<span>6명 수강중!</span>
 									</div>
 								</a>
 							</div>
@@ -677,54 +668,54 @@ UserDAO dao = new UserDAO();
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-1.jpg" alt="">
+										<img src="img/new/des.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>공예</h6>
+										<h6>색 감별사 자격증 과정</h6>
+										<span>D-7day!</span>
+									</div>
+								</a> <a href="#" class="latest-product__item">
+									<div class="latest-product__item__pic">
+										<img src="img/new/piano.jpg" alt="">
+									</div>
+									<div class="latest-product__item__text">
+										<h6>모자르트 배우기</h6>
 										<span>D-5day!</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-2.jpg" alt="">
+										<img src="img/new/si.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
-									</div>
-								</a> <a href="#" class="latest-product__item">
-									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-3.jpg" alt="">
-									</div>
-									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>한국어 배우기</h6>
+										<span>D-4day!</span>
 									</div>
 								</a>
 							</div>
 							<div class="latest-prdouct__slider__item">
 								<a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-1.jpg" alt="">
+										<img src="img/new/yoyo.png" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>필라테스 초급반</h6>
+										<span>D-2day!</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-2.jpg" alt="">
+										<img src="img/new/hair.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>헤어디자이너</h6>
+										<span>D-1day!</span>
 									</div>
 								</a> <a href="#" class="latest-product__item">
 									<div class="latest-product__item__pic">
-										<img src="img/latest-product/lp-3.jpg" alt="">
+										<img src="img/new/dog.jpg" alt="">
 									</div>
 									<div class="latest-product__item__text">
-										<h6>Crab Pool Security</h6>
-										<span>$30.00</span>
+										<h6>강아지랑 소통하기</h6>
+										<span>D-DAY!</span>
 									</div>
 								</a>
 							</div>
@@ -737,7 +728,7 @@ UserDAO dao = new UserDAO();
 	<!-- Latest Product Section End -->
 
 	<!-- Blog Section Begin -->
-	<section class="from-blog spad">
+	<!-- <section class="from-blog spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -802,7 +793,7 @@ UserDAO dao = new UserDAO();
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</section>
 	<!-- Blog Section End -->
 
@@ -810,14 +801,14 @@ UserDAO dao = new UserDAO();
 	<footer class="footer spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="col-lg-3 col-md-6 col-sm-6" style="position: relative; right: -88px;">
 					<div class="footer__about" style="width: 320px;">
 						<div class="footer__about__logo">
-							<a href="./index.html"><img src="img/logo.png" alt=""></a>
+							<a href="./index.html"><img src="img/index/lastlo.png" alt=""></a>
 						</div>
 						<ul>
-							<li>팀명 : NEXT LEVEL</li>
-							<li>팀원 : 서정현 김대우 김영웅 박민 이다연 정유진</li>
+							<!-- <li>팀명 : NEXT LEVEL</li>
+							<li>팀원 : 서정현 김대우 김영웅 박민 이다연 정유진</li> -->
 							<li>주소 : 광주 남구 송암로 60 광주CGI센터 2층</li>
 							<li>전화번호 : 062-655-3509</li>
 							<li>Email: smhrd@smhrd.or.kr</li>
@@ -846,7 +837,7 @@ UserDAO dao = new UserDAO();
                     </div>
                 </div> -->
 				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
+					<div class="footer__widget" style="position: relative; left: 447px;">
 						<h6>Join Our Newsletter Now</h6>
 						<p>Get E-mail updates about our latest shop and special
 							offers.</p>
@@ -865,7 +856,7 @@ UserDAO dao = new UserDAO();
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="footer__copyright">
+					<div class="footer__copyright" style="position: relative; left: 454px;">
 						<div class="footer__copyright__text">
 							<ul style="text-align: center;">
 								<li>팀명 : NEXT LEVEL</li>
@@ -896,6 +887,61 @@ UserDAO dao = new UserDAO();
 	</footer>
 	<!-- Footer Section End -->
 
+<!-- modal -->
+<div id="container">
+ 	<section id ="testMain">
+  		<div class="popup-wrap"">
+   		 <div class="popup">
+    		<span class ="closeArea">X</span>
+    		<div id = "testWrap">
+     		<p id = "testTitle">관심 성향 테스트<p>
+     		<img src="img/test/Researching-pana.png" alt ="이미지가 로드 되지 않음" id = "testImg">
+     		<p id = "testMainMargin">어떤 강의를 들을지 고민이시라구요?!</p>
+     		<p>간단한 테스트를 통해서 맞춤 강의를 추천 받아 보세요!!</p>
+      		<div id = "testStart">시작하기</div>	
+      		</div>
+		</section>
+	<section id ="testQNA">
+		<div class="popup-wrap" >
+			 <div class="popup">
+    		<span class ="closeArea">X</span>
+    		<div id = "testWrap">
+	     			<div class="qBox">
+	     			
+	     			</div>
+	     			
+	     			<div class="answerBox">
+	     			
+	     			</div>
+		</div>
+	</section>
+	
+	<section id ="testResult" >
+	<div class="popup-wrap"">
+   		 <div class="popup">
+    		<span class ="closeArea">X</span>
+    		<div id = "testWrap">
+     		<p id = "testTitle">당신의 결과는?!<p>
+     		<div class="resultName">
+     		
+     		</div>
+     		
+			<div id = "resultImg">
+			
+			</div>
+			<div class="resultDesc"> 
+			
+			</div>
+			<div class="resultDesc2">
+			
+			</div>
+			<button type = "button" class= "searchLink">관련 강의 보기</button>
+      		</div>
+	</section>
+		</div>
+	</div>
+	</div>
+
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -905,6 +951,8 @@ UserDAO dao = new UserDAO();
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/TestList.js" charset="utf-8"></script>
+	<script src="js/Start.js" charset="utf-8"></script>
 	
 	<script>
 		

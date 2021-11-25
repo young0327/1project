@@ -94,8 +94,8 @@ p {
 }
 
 img {
-	max-width: 100%;
-	margin-left: 0px;
+	max-width: 235px;
+	margin-top: 35px;
 }
 
 input:focus,
@@ -116,6 +116,8 @@ ul,
 ol {
 	padding: 0;
 	margin: 0;
+	position: relative;
+	top : 15px;
 }
 
 /*---------------------
@@ -755,7 +757,7 @@ ol {
 	height: 600px;
 	display: flex;
 	align-items: center;
-	padding-left: 70px;
+	padding-left: -4px;
 }
 
 .hero__text span {
@@ -996,8 +998,8 @@ ol {
 -----------------------*/
 
 .latest-product {
-	padding-top: 80px;
-	padding-bottom: 0;
+	padding-top: 12px;
+	padding-bottom: 93px;
 }
 
 .latest-product__text h4 {
@@ -1661,7 +1663,6 @@ ol {
 	text-align: center;
 	padding-top: 15px;
 	position : relative;
-	right : -36px;
 }
 
 .product__item__text h6 {
