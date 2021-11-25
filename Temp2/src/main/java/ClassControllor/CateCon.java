@@ -33,6 +33,6 @@ public class CateCon extends HttpServlet {
 		session.setAttribute("type", type );
 		
 
-		response.sendRedirect("ClassListCate.jsp");
+		response.sendRedirect("ClassList.jsp?check=1");
 	}
 }

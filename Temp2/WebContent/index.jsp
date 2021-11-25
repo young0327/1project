@@ -189,7 +189,7 @@ UserDAO dao = new UserDAO();
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.jsp"><img src="img/index/logooo.png" alt=""></a>
+						<a href="./index.jsp"><img src="img/index/logooo.png" alt="" style="width: 300px"></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -318,7 +318,7 @@ UserDAO dao = new UserDAO();
 							<div type="button" class="hero__item set-bg"
 								style="position: relative; z-index: 1;"
 								data-setbg="img/new/ezgif-3-de97db19cb70.gif"
-								onclick="location.href='GPSClass.html'"></div>
+								></div>
 							<div class="hero__text">
 								<span style="color:#FF7F50">G-CAP</span>
 								<h2>
@@ -331,35 +331,22 @@ UserDAO dao = new UserDAO();
 					</div>
 				</div>
 			</div>
-			<div class="ttt" style="text-align: center; left:50%">
-					<div class="ttt" style="text-align: center;">
-						<div class="ttt" style="text-align: center; position:relative; top:-100px; z-index:1; left:250px">
-							<div id="classlistbt"
-								data-setbg="img/categories/class2.png">
-								<!-- <h5><a href="#">강의 목록</a></h5> -->
-							</div>
-							<div class="categories__item set-bg test"
-								data-setbg="img/categories/location8.png" >
-								<h5>
-									<!-- <a href="#">내 근처 강의</a> -->
-								</h5>
-							</div>
-							<div class="categories__item set-bg test" 
-								data-setbg="img/categories/file2.png" >
-								<h5>
-									<!-- <a href="#">관심 성향 테스트</a> -->
-								</h5>
-							</div>
-							<div class="categories__item set-bg test"
-								data-setbg="img/categories/call5.png" >
-								<h5>
-									<!-- <a href="#">전화</a> -->
-								</h5>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="btwrap" style="text-align: center; width: 100%; height: 10px">
+							<span id="classListbt" style="width:20%;margin-left: 10px;margin-right:10px">
+								<img src="img/categories/class2.png">
+							</span>
+							<span id="classAreabt" style=" width:20%;margin-left: 10px;margin-right:10px">
+								<img src="img/categories/location8.png" >
+							</span>
+							<span id="testbt" style="width:20%;margin-left: 10px;margin-right:10px">
+								<img src="img/categories/file2.png" >
+							</span>
+							<span id="callbt" style="width:20%;margin-left: 10px;margin-right:10px">
+								<img src="img/categories/call5.png" >
+							</span>
+			</div>
 	</section>
+	<br>
 	<!-- Hero Section End -->
 
 
@@ -404,9 +391,8 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">이벤트 강의/인기강의</a>
+								<a href="#">왕초보 유화</a>
 							</h6>
-							<h5>$30.00</h5>
 						</div>
 					</div>
 				</div>
@@ -420,9 +406,8 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">오픈클래스/오픈예정클래스</a>
+								<a href="#">손자수 교실</a>
 							</h6>
-							<h5>$30.00</h5>
 						</div>
 					</div>
 				</div>
@@ -435,9 +420,8 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">인기강의/오픈클래스</a>
+								<a href="#">겨울 문학</a>
 							</h6>
-							<h5>$30.00</h5>
 						</div>
 					</div>
 				</div>
@@ -451,9 +435,8 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">이벤트강의/오픈예정클래스 </a>
+								<a href="#">바른 정신 바른 글씨 </a>
 							</h6>
-							<h5>$30.00</h5>
 						</div>
 					</div>
 				</div>
@@ -467,9 +450,9 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">인기강의/오픈클래스</a>
+								<a href="#">아이와 함께하는 미술 교실</a>
 							</h6>
-							<h5>$30.00</h5>
+							<h5></h5>
 						</div>
 					</div>
 				</div>
@@ -483,9 +466,9 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">이벤트강의/오픈예정클래스</a>
+								<a href="#">원데이 네일아트</a>
 							</h6>
-							<h5>$30.00</h5>
+							<h5></h5>
 						</div>
 					</div>
 				</div>
@@ -499,9 +482,9 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">인기강의/오픈클래스</a>
+								<a href="#">감각적으로 사진 찍기</a>
 							</h6>
-							<h5>$30.00</h5>
+							<h5></h5>
 						</div>
 					</div>
 				</div>
@@ -515,9 +498,9 @@ UserDAO dao = new UserDAO();
 						</div>
 						<div class="featured__item__text">
 							<h6>
-								<a href="#">오픈클래스/오픈예정클래스</a>
+								<a href="#">겨울철 면 수업</a>
 							</h6>
-							<h5>$30.00</h5>
+							<h5></h5>
 						</div>
 					</div>
 				</div>

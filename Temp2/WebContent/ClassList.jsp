@@ -34,11 +34,27 @@
 
 <body>
 <%
+
 request.setCharacterEncoding("EUC-KR");
-String cate = request.getParameter("cate");
+String check=request.getParameter("check");
+ArrayList<ClassVO> al = new ArrayList<ClassVO>();
+String cate="";
+if(check==null){
+	System.out.println(check);
+cate = request.getParameter("cate");
 session.setAttribute("cate", cate);
 ClassDAO dao = new ClassDAO();
-ArrayList<ClassVO> al = dao.Search(cate);
+al = dao.Search(cate);
+}else if (check.equals("1")){
+	System.out.println(check);
+cate = (String)session.getAttribute("cate");
+String[] location = (String[])session.getAttribute("location");
+String[] time = (String[])session.getAttribute("time");
+String[] type = (String[])session.getAttribute("type");
+
+ClassDAO dao = new ClassDAO();
+al = dao.cateSearch(location, time, type, cate);
+}
 %>
 
     <!-- Page Preloder -->
@@ -259,10 +275,9 @@ ArrayList<ClassVO> al = dao.Search(cate);
                          
                                      <%for (ClassVO vo : al){%>
                          <div class = "offset col-3 col-3 offset col-3 m-0">          
-                         <div class="product__item" style="text-align: center">  
-                            
-                         <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px"></a>	
-                             
+                         <div class="product__item" style="text-align: center">
+                         <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img id ="imgs" src="img/pic/<%=vo.getC_seq()%>.jpg" style = "length:200px; width:270px"></a>	
+                             <span style="display:none"><%=vo.getC_category1() %></span>
                              <div class="product__item__text">
                                  <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
                                  <h6>시작일자 : <%=vo.getC_start_dt() %></h6>
@@ -271,15 +286,6 @@ ArrayList<ClassVO> al = dao.Search(cate);
                          </div>
                      </div>
                      <%}%>
-                   
-                    <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -364,7 +370,6 @@ ArrayList<ClassVO> al = dao.Search(cate);
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
 
 </body>
 

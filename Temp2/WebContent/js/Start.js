@@ -75,7 +75,7 @@ $(function(){
 				let point = resultword;
 				console.log("point"+point);
 				$('.resultName').text(infoList[point].name);
-				$('#resultImg').append('<img src= "./img/test/image-'+point+'.png" class="resultImg">')
+				$('#resultImg').append('<img id="reimg" src= "./img/test/image-'+point+'.png" class="resultImg">')
 				$('.resultDesc').text(infoList[point].desc);
 				$('.resultDesc2').text(infoList[point].desc2);
 				$('.searchLink').on('click',function(){
