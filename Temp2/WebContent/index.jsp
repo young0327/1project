@@ -29,7 +29,10 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-
+    <link rel="stylesheet" href="css/TestModal.css" type="text/css">
+    <link rel="stylesheet" href="css/qna.css" type="text/css">
+    <link rel="stylesheet" href="css/TestResult.css" type="text/css">
+    
 <style>
 .a_margin {
 	margin-left: 1rem;
@@ -193,7 +196,7 @@ UserDAO dao = new UserDAO();
 					<nav class="header__menu">
 						<ul style="text-align: center;">
 							<li><a href="./shop.html">내 근처 강의</a></li>
-							<li><a href="serch.html">관심성향테스트</a>
+							<li><a href="#" id ="modal-open">관심성향테스트</a>
 								<!-- <ul class="header__menu__dropdown">
 									<li><a href="./shop-details.html">Shop Details</a></li>
 									<li><a href="./shoping-cart.html">Shoping Cart</a></li>
@@ -884,6 +887,61 @@ UserDAO dao = new UserDAO();
 	</footer>
 	<!-- Footer Section End -->
 
+<!-- modal -->
+<div id="container">
+ 	<section id ="testMain">
+  		<div class="popup-wrap"">
+   		 <div class="popup">
+    		<span class ="closeArea">X</span>
+    		<div id = "testWrap">
+     		<p id = "testTitle">관심 성향 테스트<p>
+     		<img src="img/test/Researching-pana.png" alt ="이미지가 로드 되지 않음" id = "testImg">
+     		<p id = "testMainMargin">어떤 강의를 들을지 고민이시라구요?!</p>
+     		<p>간단한 테스트를 통해서 맞춤 강의를 추천 받아 보세요!!</p>
+      		<div id = "testStart">시작하기</div>	
+      		</div>
+		</section>
+	<section id ="testQNA">
+		<div class="popup-wrap" >
+			 <div class="popup">
+    		<span class ="closeArea">X</span>
+    		<div id = "testWrap">
+	     			<div class="qBox">
+	     			
+	     			</div>
+	     			
+	     			<div class="answerBox">
+	     			
+	     			</div>
+		</div>
+	</section>
+	
+	<section id ="testResult" >
+	<div class="popup-wrap"">
+   		 <div class="popup">
+    		<span class ="closeArea">X</span>
+    		<div id = "testWrap">
+     		<p id = "testTitle">당신의 결과는?!<p>
+     		<div class="resultName">
+     		
+     		</div>
+     		
+			<div id = "resultImg">
+			
+			</div>
+			<div class="resultDesc"> 
+			
+			</div>
+			<div class="resultDesc2">
+			
+			</div>
+			<button type = "button" class= "searchLink">관련 강의 보기</button>
+      		</div>
+	</section>
+		</div>
+	</div>
+	</div>
+
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -893,6 +951,22 @@ UserDAO dao = new UserDAO();
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/TestList.js" charset="utf-8"></script>
+	<script src="js/Start.js" charset="utf-8"></script>
+	
+	<script>
+		
+	 $('#community').on('click', function(){
+		
+		 if($('#id_check').val()==0){
+			 alert('로그인 후 이용해주세요.')
+		 }else{
+			 window.location.href = "Board/BoardList.jsp"
+		 }
+		 
+	 })
+	
+	</script>
 
 
 

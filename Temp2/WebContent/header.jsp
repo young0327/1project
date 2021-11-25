@@ -50,7 +50,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="index.jsp"><img src="img/logooo.png" alt=""></a>
+            <a href="index.jsp"><img src="img/index/logooo.png" hrdf="index.jsp"></a>
         </div>
         <div class="header__top__right__auth">
             <a href="Login.html"><i class="fa fa-user"></i> 로그인</a>
@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.jsp"><img src="img/index/logooo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -124,15 +124,15 @@
 
                     <!--
                     하트, 장바구니 메뉴 오른쪽-->
-                    
+                    <!--  
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">item: <span>$150.00</span></div>-->
                     </div>
                 </div>
-            </div>
+            
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
 

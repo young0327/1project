@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import ClassModel.ClassVO;
+
 public class ClassDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -156,12 +158,13 @@ public class ClassDAO {
 	}
 	
 	// 모든 검색 카테고리 정보 
-	public ArrayList<ClassVO> cateAllSearch(String[] location, String[] time, String[] type, String cate) {
+	public ArrayList<ClassVO> cateAllSearch(String[] location, String[] time, String[] type ,String Searchs) {
 		ArrayList<ClassVO> al = new ArrayList<ClassVO>();
 		String a="";
 		String b="";
 		String c="";
 		String d ="'";
+		String sql ;
 		
 		if(location==null) {
 			a="'구'";
@@ -183,16 +186,22 @@ public class ClassDAO {
 		c=input(type);
 		c=d+c+d;
 		}
+	
 		
 		try {
 			getconn();
-
-			String sql = "select c_name, c_start_dt, c_end_dt, c_seq from T_Class where  c_name like ? and regexp_like (c_location ,"+a+") and regexp_like (c_time ,"+b+") and regexp_like(c_category2 ,"+c+")";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, "%"+cate+"%");
+			if (Searchs==null) {
+				sql = "select c_name, c_start_dt, c_end_dt, c_seq from T_Class where regexp_like (c_location ,"+a+") and regexp_like (c_category3 ,"+b+") and regexp_like(c_category2 ,"+c+")";
+				psmt = conn.prepareStatement(sql);
+			}else {
+				sql = "select c_name, c_start_dt, c_end_dt, c_seq from T_Class where c_name like ? and regexp_like (c_location ,"+a+") and regexp_like (c_category3,"+b+") and regexp_like(c_category2 ,"+c+")";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, "%"+Searchs+"%");
+				
+			}
+			
+			
 			rs = psmt.executeQuery();
-
 			while (rs.next()) {
 				
 				String c_name = rs.getString(1);
@@ -366,39 +375,72 @@ public class ClassDAO {
 	return al;
 }
 	
-	// 모든 검색 카테고리 정보 
-	public ArrayList<ClassVO> nearClassSearch() {
-		ArrayList<ClassVO> al = new ArrayList<ClassVO>();
+	//테스트 결과 검색 
+		public ArrayList<ClassVO> TestSearch(String type) {
+			ArrayList<ClassVO> al = new ArrayList<ClassVO>();
+			try {
+				getconn();
+
+				String sql = "select c_name, c_start_dt, c_end_dt, c_seq from T_Class where c_category2 like ?"; // 테이블 내용 오면 수정 할 것!!
+
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, "%"+type+"%");
+
+				rs = psmt.executeQuery();
+
+				while (rs.next()) {
+					
+					String c_name = rs.getString(1);
+					Date c_start_dt = rs.getDate(2);
+					Date c_end_dt = rs.getDate(3);
+					int c_seq = rs.getInt(4);
+					
+					ClassVO vo = new ClassVO(c_name,c_start_dt,c_end_dt,c_seq);
+					al.add(vo);
+					
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace(); 
 			
-		try {
-			getconn();
 
-			String sql = "select * from T_CLASS";
-
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-				
-				int c_seq = rs.getInt("c_seq");
-				String c_name = rs.getString("c_name");
-				String c_location = rs.getString("c_location");
-				String c_pay = rs.getString("c_pay");
-				
-				ClassVO vo = new ClassVO(c_seq, c_name, c_location, c_pay);
-				al.add(vo);
+			} finally {
+				close();
 			}
-
-		} catch (Exception e) {
-			e.printStackTrace(); 
-
-		} finally {
-			close();
+			return al;
 		}
-		return al;
-	}
-	
-	
+
+		
+		public ArrayList<ClassVO> nearClassSearch() {
+			      ArrayList<ClassVO> al = new ArrayList<ClassVO>();
+			         
+			      try {
+			         getconn();
+
+			         String sql = "select * from T_CLASS";
+
+			         psmt = conn.prepareStatement(sql);
+			         rs = psmt.executeQuery();
+
+			         while (rs.next()) {
+			            
+			            int c_seq = rs.getInt("c_seq");
+			            String c_name = rs.getString("c_name");
+			            String c_location = rs.getString("c_location");
+			            String c_pay = rs.getString("c_pay");
+			            
+			            ClassVO vo = new ClassVO(c_seq, c_name, c_location, c_pay);
+			            al.add(vo);
+			         }
+
+			      } catch (Exception e) {
+			         e.printStackTrace(); 
+
+			      } finally {
+			         close();
+			      }
+			      return al;
+			   }
 	
 }
 

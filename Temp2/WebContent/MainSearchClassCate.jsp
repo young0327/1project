@@ -34,13 +34,13 @@
 
 <body>
 <%
-String cate = (String) session.getAttribute("cate");
+String Searchs = (String)session.getAttribute("Searchs");
 String[] location = (String[])session.getAttribute("location");
 String[] time = (String[])session.getAttribute("time");
 String[] type = (String[])session.getAttribute("type");
 
 ClassDAO dao = new ClassDAO();
-ArrayList<ClassVO> al = dao.cateAllSearch(location, time, type, cate);
+ArrayList<ClassVO> al = dao.cateAllSearch(location, time, type, Searchs);
 
 %>
 
