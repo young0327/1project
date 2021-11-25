@@ -66,6 +66,8 @@
 		#pagination {margin:10px auto;text-align: center;}
 		#pagination a {display:inline-block;margin-right:10px;}
 		#pagination .on {font-weight: bold; cursor: default;color:#777;}
+		#toTop { position: fixed; /* 포지션 고정 */ bottom: 100px; right: 50px; /* 밑에서 100px */ display: none; /* 보여지지 없음 - 기본적으로 안보여지게 */ z-index: 9999; /* 포지션을 먼저 지정후 z-좌표(레이어) : 9999입니다. */ }
+
 	</style>
 </head>
 
@@ -76,6 +78,8 @@
 	
 
 %>
+
+	<img id="toTop" src="img/toTop.png" width=60 height=60 href="#">
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -341,11 +345,11 @@
 			</div>
 			
 			<div>
-			<div id="class_length"><%=al.size() %></div>
+			<span style="margin-top:50px; margin-left:20px;"><h3 style="margin-left:20px;">강의리스트</h3></span>
 			    <section>
-	    	<div id="data-container">
-	    	<table>
-				<tr class="class_list">
+	    	<div id="container boardList">
+	    	<table class="table table-hover">
+				<tr "class_list">
 					<th>순번</th>
 					<th>강의명</th>
 					<th>주소</th>
@@ -459,7 +463,23 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a702c7fd840f10be902e425fe276119&libraries=services,clusterer,drawing"></script>
 	<script  type="text/javascript" charset="utf-8">
 	// 주소로 좌표를 검색합니다
-
+	$(function() { // 보이기 | 숨기기 
+		$(window).scroll(function() { if ($(this).scrollTop() > 250) { //250 넘으면 버튼이 보여짐니다. 
+			$('#toTop').fadeIn(); $('#toTop').css('left', $('#sidebar').offset().left); // #sidebar left:0 죄표 
+			} else {
+				$('#toTop').fadeOut();
+				} 
+		}); 
+	// 버튼 클릭시 
+		$("#toTop").click(function() {
+			$('html, body').animate({ 
+				scrollTop : 0 
+				// 0 까지 animation 이동합니다.
+				}, 400); // 속도 400 
+				return false; 
+				}); 
+	});		
+	
 	
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
