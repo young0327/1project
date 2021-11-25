@@ -52,9 +52,10 @@ if(type!=null){
 		type= "참여형";
 	}else if(type.equals("제대로 즐길줄 아는 당신은 <향유형>")){
 		type="향유형";
-	}else{
+	}else if(type.equals("배움에 열정이 넘츠는 당신은 <수강형>")){
 		type="수강형";
 	}
+System.out.println(type);
 ClassDAO dao = new ClassDAO();
 al = dao.TestSearch(type);
 }else{

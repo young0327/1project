@@ -4,14 +4,15 @@ $(function(){
 		  $("#confirm1").click(function(){
 			  modalClose(); //모달 닫기 함수 호출
 			  $.ajax({
-				  url:'/pro/ApplyCon',
+				  url:'ApplyCon',
 			  	  data:{classnum:C_seq},
 				  contentType:'utf-8',
 			  	  success:function(){
 			  		$("#popupsc").css('display','flex').hide().fadeIn(0.01);
+			console.log("성공")
 			  	  },
 			  	  error:function(){
-			  		  alert('실패');
+			  		  console.log('실패');
 			  	  }
 			  	});
 			  
