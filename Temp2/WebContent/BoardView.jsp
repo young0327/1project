@@ -116,16 +116,15 @@ p{
     <!-- 중간 배너 끝 -->
 	<article>
 		<div class="container" role="main">
-			<h3>자유게시판</h3>
-			
 			<div class="bg-white rounded shadow-sm">
 				<div class="board_title"> 제목</div>
+				<hr>
 				
 				<div class="board_info_box">
 					<span class="board_author">아이디</span><span class="board_date">2021-11-25</span>
 				</div>
 				<div class="board_content"></div>
-				<div class="board_tag">내용 내용</div>
+				<div class="board_tag">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용</div>
 			</div>
 			<div style=" float: right; padding-right: 5px;">
 				<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
@@ -157,7 +156,7 @@ p{
 			
 			<!-- 댓글 한마디-->
 			<div class="container">
-			<div class="my-3 p-3" style="padding-top: 10px">
+			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
 				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
 				<div class="media text-muted">
         <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
@@ -173,10 +172,13 @@ p{
         </span>
         </span>
         </p>
+        </div>
         <!-- 댓글 한마디 끝-->
        
         <!-- 댓글 한마디-->
-    </div><div class="media text-muted">
+    
+    <div class="media text-muted">
+    
         <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
                 <span class="d-block">
             <strong class="text-gray-dark">아이디</strong>
