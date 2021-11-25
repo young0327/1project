@@ -195,7 +195,7 @@ UserDAO dao = new UserDAO();
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul style="text-align: center;">
-							<li><a href="./shop.html">내 근처 강의</a></li>
+							<li><a href="./shop.jsp">내 근처 강의</a></li>
 							<li><a href="#" id ="modal-open">관심성향테스트</a>
 								<!-- <ul class="header__menu__dropdown">
 									<li><a href="./shop-details.html">Shop Details</a></li>
@@ -203,8 +203,8 @@ UserDAO dao = new UserDAO();
 									<li><a href="./checkout.html">Check Out</a></li>
 									<li><a href="./blog-details.html">Blog Details</a></li>
 								</ul></li> -->
-							<li><a href="./blog.html">전체클래스</a></li>
-							<li><a href="Board/BoardList.jsp">커뮤니티</a></li>
+							<li><a href="./MainSearchClass.jsp">전체클래스</a></li>
+							<li><a href="./Board/BoardList.jsp">커뮤니티</a></li>
 						</ul>
 					</nav>
 
