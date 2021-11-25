@@ -1,19 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>G-CAP|관심성향테스트</title>
-	
-	<link rel="icon" href="img/portfolio.png">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -26,174 +21,9 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+<div>
+        <jsp:include page="header.jsp" flush="true"></jsp:include>
     </div>
-
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
-
-    <!-- Header Section Begin -->
-    <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header__top__left">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                    </div>
-                </div>
-            </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><!-- <a href="./index.html">H</a></li> -->
-                            <li><a href="./shop.html">주변강의</a></li>
-                            <li><a href="#">관심성향테스트</a>
-                                <!-- <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul> -->
-                            </li>
-                            <li><a href="./blog.html">강의수요조사</a></li>
-                            <li><a href="./contact.html">커뮤니티</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="shoping-cart.html"><i class="fa fa-heart"></i> <span>3</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
-
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>클래스</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">디지털 드로잉</a></li>
-                            <li><a href="#">드로잉</a></li>
-                            <li><a href="#">공예</a></li>
-                            <li><a href="#">요리ㆍ음료</a></li>
-                            <li><a href="#">베이킹ㆍ디저트</a></li>
-                            <li><a href="#">음악</a></li>
-                            <li><a href="#">운동</a></li>
-                            <li><a href="#">라이프</a></li>
-                            <li><a href="#">사진ㆍ영상</a></li>
-                            <li><a href="#">디자인</a></li>
-                            <li><a href="#">개발ㆍ데이터</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    카테고리
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="찾으시는 취미가 있으신가요?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -201,10 +31,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>관심성향테스트</h2>
+                        <h2>���ɼ����׽�Ʈ</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
-                            <span>성향테스트</span>
+                            <span>�����׽�Ʈ</span>
                         </div>
                     </div>
                 </div>
@@ -223,20 +53,20 @@
                 </div>
             </div> -->
             <div class="checkout__form">
-                <h4>인적사항</h4>
+                <h4>��������</h4>
                 <form action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>성<span>*</span></p>
+                                        <p>��<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>이름<span>*</span></p>
+                                        <p>�̸�<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
@@ -246,9 +76,9 @@
                                 <input type="text">
                             </div> -->
                             <div class="checkout__input">
-                                <p>주소<span>*</span></p>
-                                <input type="text" placeholder="정확하게 기입해주세요" class="checkout__input__add">
-                                <input type="text" placeholder="상세정보(optinal)">
+                                <p>�ּ�<span>*</span></p>
+                                <input type="text" placeholder="��Ȯ�ϰ� �������ּ���" class="checkout__input__add">
+                                <input type="text" placeholder="������(optinal)">
                             </div>
                             <!-- <div class="checkout__input">
                                 <p>Town/City<span>*</span></p>
@@ -265,13 +95,13 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>전화번호<span>*</span></p>
+                                        <p>��ȭ��ȣ<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>이메일<span>*</span></p>
+                                        <p>�̸���<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
@@ -298,17 +128,17 @@
                             </div>
                             -->
                             <div class="checkout__input">
-                                <p>TO. 튜터님께<span></span></p>
+                                <p>TO. Ʃ�ʹԲ�<span></span></p>
                                 <input type="text"
-                                    placeholder="궁금한 점이나 자신을 소개해주세요!">
+                                    placeholder="�ñ��� ���̳� �ڽ��� �Ұ����ּ���!">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <h4>수강신청 확인</h4>
-                                <div class="checkout__order__products">클래스 <span>수강료</span></div>
+                                <h4>������û Ȯ��</h4>
+                                <div class="checkout__order__products">Ŭ���� <span>������</span></div>
                                 <ul>
-                                    <li>둡의 연필 드로잉 <span>200,000원</span></li>
+                                    <li>���� ���� ����� <span>200,000��</span></li>
                                     <!-- <li>Fresh Vegetable <span>$151.99</span></li>
                                     <li>Organic Bananas <span>$53.99</span></li> -->
                                 </ul>
@@ -316,13 +146,13 @@
                                 <div class="checkout__order__total">Total <span>$750.99</span></div> -->
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
-                                        교육기관 이용동의
+                                        ������� �̿뵿��
                                         <input type="checkbox" id="acc-or">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <p>이 약관은 G-CAP(이하 당사)이 제공하는 수업 연결 서비스를 이용함에 있어 당사와 이용자의 권리, 의무 및 책임사항을 규정합니다. 
-                                이를 통하여 당사와 이용자는 알아야 할 사항을 숙지, 상호 신뢰의 증진을 목적으로 합니다.</p>
+                                <p>�� ����� G-CAP(���� ���)�� �����ϴ� ���� ���� ���񽺸� �̿��Կ� �־� ���� �̿����� �Ǹ�, �ǹ� �� å�ӻ����� �����մϴ�. 
+                                �̸� ���Ͽ� ���� �̿��ڴ� �˾ƾ� �� ������ ����, ��ȣ �ŷ��� ������ �������� �մϴ�.</p>
                                 <!-- <div class="checkout__input__checkbox">
                                     <label for="payment">
                                         
@@ -332,12 +162,12 @@
                                 </div> -->
                                 <div class="checkout__input__checkbox">
                                     <label for="paypal">
-                                        클래스의 유의사항을 확인하였으며, 클래스 신청에 동의합니다
+                                        Ŭ������ ���ǻ����� Ȯ���Ͽ�����, Ŭ���� ��û�� �����մϴ�
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">결제하기</button>
+                                <button type="submit" class="site-btn">�����ϱ�</button>
                             </div>
                         </div>
                     </div>

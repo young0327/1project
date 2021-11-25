@@ -50,15 +50,15 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logooo.png" alt=""></a>
+            <a href="index.jsp"><img src="img/logooo.png" alt=""></a>
         </div>
         <div class="header__top__right__auth">
-            <a href=""><i class="fa fa-user"></i> 로그인</a>
+            <a href="Login.html"><i class="fa fa-user"></i> 로그인</a>
         </div>
 
         <br>
         <div class="header__top__right__auth">
-            <a href="#"><i class="fa fa-user"></i> 내 근처 강의</a>
+            <a href="shop.jsp"><i class="fa fa-user"></i> 내 근처 강의</a>
         </div>
         <br>
         <div class="header__top__right__auth">
@@ -66,11 +66,11 @@
         </div>
         <br>
         <div class="header__top__right__auth">
-            <a href="#"><i class="fa fa-user"></i> 강의 수요조사</a>
+            <a href="blog.html"><i class="fa fa-user"></i> 전체클래스</a>
         </div>
         <br>
         <div class="header__top__right__auth">
-            <a href="#"><i class="fa fa-user"></i> 커뮤니티</a>
+            <a href="../Board/BoardList.jsp"><i class="fa fa-user"></i> 커뮤니티</a>
         </div>
     </div>
    

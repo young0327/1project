@@ -68,7 +68,7 @@ UserDAO dao = new UserDAO();
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#"><img src="img/logo.png" alt=""></a>
+			<a href="index.jsp"><img src="img/logo.png" alt=""></a>
 		</div>
 		<!--  
         <div class="humberger__menu__cart">
@@ -189,7 +189,7 @@ UserDAO dao = new UserDAO();
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.html"><img src="img/index/logooo.png" alt=""></a>
+						<a href="./index.jsp"><img src="img/index/logooo.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -313,7 +313,7 @@ UserDAO dao = new UserDAO();
 					<div>
 						<div type="button" class="hero__item set-bg"
 							style="position: relative; z-index: 1;"
-							data-setbg="img/new/ezgif-3-de97db19cb70.gif"
+							data-setbg="img/bnn.jpg"
 							onclick="location.href='GPSClass.html'">
 							<div type="button" class="hero__item set-bg"
 								style="position: relative; z-index: 1;"
