@@ -264,7 +264,7 @@ ArrayList<ClassVO> al = dao.cateAllSearch(location, time, type, Searchs);
                      <div class = "offset col-3 col-3 offset col-3 m-0">          
                          <div class="product__item" style="text-align: center">  
                     
-                         <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/product/product-1.jpg" style = "length:200px; width:270px"></a>	
+                         <a href="DetailCon?cnum=<%=vo.getC_seq()%>"><img src="img/pic/<%=vo.getC_seq()%>.jpg" style = "length:200px; width:270px"></a>	
                            
                              <div class="product__item__text">
                                  <h5><a href="DetailCon?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></h5>
@@ -275,14 +275,6 @@ ArrayList<ClassVO> al = dao.cateAllSearch(location, time, type, Searchs);
                      </div>
                      <%}%>
                    
-                    <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
                 </div>
             </div>
         </div>

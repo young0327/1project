@@ -237,7 +237,7 @@ int distnum = dao.DistinctClass(cnum);
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="img/new/kids.jpg" alt="">
+                                src="img/pic/<%=vo.getC_seq() %>.jpg" alt="">
                         </div>
                     </div>
                 </div>

@@ -54,7 +54,7 @@
    }     
    
    #testMainMargin{
-   margin-top: 15px;
+   margin-top: -28px;
    margin-left: 45px;
    margin-right: 45px;
    
@@ -87,3 +87,4 @@
    #testQNA{
    display:none;
    }
+ 
