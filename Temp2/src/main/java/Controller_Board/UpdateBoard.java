@@ -24,6 +24,7 @@ public class UpdateBoard extends HttpServlet {
 		try{
 		// post방식 인코딩
 		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html;charset=euc-kr");
 		System.out.println("업데이트보드 들어오나?");
 		//1. request 객체
 		//2. savePath(저장경로)
@@ -68,7 +69,7 @@ public class UpdateBoard extends HttpServlet {
 
 		if(cnt > 0) {
 			System.out.println("글 업데이트 성공!");
-			response.sendRedirect("boardMain.jsp");
+			response.sendRedirect("BoardView.jsp?num="+num);
 		}else {
 			System.out.println("글 업데이트 실패!");
 		}

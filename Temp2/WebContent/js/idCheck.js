@@ -19,7 +19,7 @@
 		
 		$.ajax({
 		
-			url : "/GCAP/CheckIdService",
+			url : "../CheckIdService",
 			data : {id: id},
 			dataType : 'json',
 			success : function(result){

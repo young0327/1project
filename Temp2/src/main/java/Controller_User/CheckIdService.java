@@ -21,7 +21,7 @@ public class CheckIdService extends HttpServlet {
 		
 		request.setCharacterEncoding("euc-kr");
 		response.setContentType("text/html;charset=euc-kr");
-		
+		System.out.println("들어오는건가");
 		String id = request.getParameter("id");
 		
 		UserDAO dao = new UserDAO();
