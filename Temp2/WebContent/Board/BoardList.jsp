@@ -70,14 +70,14 @@
     </div>
     <!-- Hero Section End -->
        <!-- Breadcrumb Section Begin -->
-        <section class="breadcrumb-section set-bg" data-setbg="../img/breadcrumb.jpg">
+        <section class="breadcrumb-section set-bg" data-setbg="../img/new/realreal.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>커뮤니티</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="./index.jsp">Home</a>
                             <span>자유게시판</span>
                         </div>
                     </div>
