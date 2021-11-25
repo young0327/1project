@@ -141,7 +141,7 @@ body {
 			<div>
 
 								
-				<input type="submit" class="btn btn-sm btn-primary" id="btnSave" value="저장">
+				<input type="submit" class="btn btn-sm btn-primary" id="btnSave" value="저장" href="Board/BoardList.jsp">
 
 				<a href="Board/BoardList.jsp"><button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button></a>
 				
