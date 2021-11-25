@@ -85,6 +85,9 @@ body {
 span{
 	margin-top: 10px;
 }
+p{
+	margin-bottom: 10px;
+}
 
 </style>
 </head>
@@ -134,27 +137,54 @@ span{
 			</div>
 			<!-- Reply Form {e} -->
 			
-			<!-- Reply List {s}-->
+			<!-- 댓글 한마디-->
 			<div class="container">
 			<div class="my-3 p-3" style="padding-top: 10px">
 				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
-				<div id="replyList"></div>
-				
-				
-				<div>
-				<span>1</span>
+				<div class="media text-muted">
+        <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
+                <span class="d-block">
+            <strong class="text-gray-dark">아이디</strong><br>
+            <span>내용내용내용나나나나나나나나나나나나나</span>
+            <span style="font-size: 9pt; padding-left: 10px;">
+            <a href="#">수정</a>
+            <a href="#">삭제</a>
+            <a href="#">관리</a>
+        </span>
+        </span>
+        </p>
+        <!-- 댓글 한마디 끝-->
+        
+        <!-- 댓글 한마디-->
+    </div><div class="media text-muted">
+        <p class="media-body small lh-125 border-bottom horder-gray" style="padding-bottom: 8px;">
+                <span class="d-block">
+            <strong class="text-gray-dark">아이디</strong><br>
+            <span>내용내용내용나나나나나나나나나나나나나</span>
+            <span style="font-size: 9pt; padding-left: 10px;">
+            <a href="#">수정</a>
+            <a href="#">삭제</a>
+            <a href="#">관리</a>
+        </span>
+        </span>
+        </p>
+    </div>
+<!-- 댓글 한마디 끝-->
+
+				<div class="border-bottom">
+				<span>나나나나나나나ㅏ나나나나나나ㅏ나나나ㅏ나나나나</span>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">수정</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">삭제</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">관리</button>
 				</div>
-				<div>
-				<span>1</span>
+				<div class="border-bottom">
+				<span>이제 그만하자 집에 가고싶다</span>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">수정</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">삭제</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">관리</button>
 				</div>
-				<div>
-				<span>1</span>
+				<div class="border-bottom">
+				<span>현재 시간 9시가 다 되어 갑니다</span>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">수정</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">삭제</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList" style="float: right;">관리</button>
@@ -162,42 +192,7 @@ span{
 			</div> 
 	</article>
 </div>
-<div class="container">
-<div class="media text-muted pt-3"></div>
-		<svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:32x32">';
-		<title>Placeholder</title>';
-		<rect width="100%" height="100%" fill="#007bff"></rect>
-		<text x="50%" fill="#007bff" dy=".3em">32x32</text>
-		</svg>
-		<p class="media-body pb-3 mb-0 small lh-125 border-bottom horder-gray">
-		<span class="d-block">
-		<strong class="text-gray-dark"></strong>
-		<span style="padding-left: 7px; font-size: 9pt">
-		<a href="javascript:void(0)"style="padding-right:5px">저장</a>
-		<a href="javascript:void(0)" >취소<a>
-		</span>
-		</span>
-		<input name="editContent" id="editContent" class="form-control" rows="3"></input>
-		</p>
-		</div>
-</div>
-<!-- 댓글 창 -->
-	<div class="container">
-	 <div class="media text-muted pt-3" id="rid' + this.rid + '">
-           
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom horder-gray">
-                <span class="d-block">
-            <strong class="text-gray-dark">여기가 아이디래</strong><br>
-            <span>내용?</span>
-            <span style="font-size: 9pt">
-            <ahref="javascript:void(0)">수정</a>
-            <a>삭제</a>
-            <a>관리</a>
-        </span>
-        </span>
-        </p>
-    </div>
-	</div>
+
 
 
 
