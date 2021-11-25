@@ -92,11 +92,29 @@ p{
 </style>
 </head>
 <body>
-<div>
+<!-- 헤더 -->
+	<div>
         <jsp:include page="header.jsp" flush="true"></jsp:include>
     </div>
+	<!-- 헤더 끝 -->
+	
+	<!-- 중간 배너 -->
+	 <section class="breadcrumb-section set-bg" data-setbg="img/new/realreal.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>커뮤니티</h2>
+                        <div class="breadcrumb__option">
+                            <span href="./index.jsp">자유게시판</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 중간 배너 끝 -->
 	<article>
-
 		<div class="container" role="main">
 			<h3>자유게시판</h3>
 			
@@ -109,7 +127,7 @@ p{
 				<div class="board_content"></div>
 				<div class="board_tag">내용 내용</div>
 			</div>
-			<div style="margin-top : 20px; float: right;">
+			<div style=" float: right; padding-right: 5px;">
 				<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
