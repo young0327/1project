@@ -479,7 +479,6 @@ int distnum = dao.DistinctClass(cnum);
 	<script>
 	$('.reviewbtn').click(function(){
 		let reviewdata = $("#reviewsend").serialize();
-		alert(reviewdata);
 		$.ajax({
 			type: 'post',
 			url:'ReviewCon',
