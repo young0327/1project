@@ -34,7 +34,8 @@
 <%
 //request.setCharacterEncoding("EUC-KR");
 //response.setContentType("text/html; charset=EUC-KR");
-Integer cnum = (Integer) application.getAttribute("cnum");
+/*Integer cnum = (Integer) application.getAttribute("cnum");*/
+int cnum = Integer.parseInt(request.getParameter("cnum"));
 ClassDAO dao = new ClassDAO();
 ClassVO vo = dao.show(cnum);
 int distnum = dao.DistinctClass(cnum);

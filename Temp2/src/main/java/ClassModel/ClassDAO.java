@@ -417,7 +417,7 @@ public class ClassDAO {
 			      try {
 			         getconn();
 
-			         String sql = "select * from T_CLASS";
+			         String sql = "select * from T_CLASS order by c_seq desc";
 
 			         psmt = conn.prepareStatement(sql);
 			         rs = psmt.executeQuery();

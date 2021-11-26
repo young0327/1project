@@ -359,7 +359,7 @@
 				<%for(ClassVO vo : al){ %>
 				<tr class="class_list" id=<%=vo.getC_seq() %>>
 					<td class="class_list" id="class_seq"><%=vo.getC_seq() %></td>
-					<td class="class_list" id="class_name"><%=vo.getC_name() %></td>
+					<td class="class_list" id="class_name"><a href="DetailPage.jsp?cnum=<%=vo.getC_seq()%>"><%=vo.getC_name() %></a></td>
 					<td class="class_list" id="class_location"><%=vo.getC_location() %></td>					
 					<td class="class_list" id="class_pay"><%=vo.getC_pay() %></td>
 				</tr>
