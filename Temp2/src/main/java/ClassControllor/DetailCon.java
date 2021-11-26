@@ -29,7 +29,7 @@ public class DetailCon extends HttpServlet {
 	
 	application.setAttribute("cnum", cnum);
 	
-	response.sendRedirect("DetailPage.jsp");
+	response.sendRedirect("DetailPage.jsp?cnum="+cnum);
 	
 	
 	}

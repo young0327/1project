@@ -153,7 +153,7 @@ al = dao.cateSearch(location, time, type, cate);
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul> -->
                             </li>
-                            <li><a href="./blog.html">강의수요조사</a></li>
+                            <li><a href="./blog.html">전체클래스</a></li>
                             <li><a href="./contact.html">커뮤니티</a></li>
                         </ul>
                     </nav>

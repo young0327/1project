@@ -38,6 +38,7 @@ public class DeleteBoard extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("글 삭제 성공");
+			response.sendRedirect("Board/BoardList.jsp");
 			
 		}else{
 			System.out.println("글 삭제 실패");

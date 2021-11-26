@@ -36,7 +36,7 @@ public class HitCountBoard extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("조회수 + 성공");
-			response.sendRedirect("viewBoard.jsp?num="+seq_num);
+			response.sendRedirect("BoardView.jsp?num="+seq_num);
 			
 		}else {
 			System.out.println("조회수 + 실패");

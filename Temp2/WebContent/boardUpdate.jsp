@@ -89,8 +89,9 @@ int num = Integer.parseInt(request.getParameter("num"));
 BoardVO vo2 = dao2.showOneArticle(num);
 String id = vo2.getU_id();
 String file1 = dao2.showOneArticle(num).getFile1();
+String fileName = "";
 if(file1!=null){
-	file1 = URLDecoder.decode(file1);
+	fileName = URLDecoder.decode(file1, "euc-kr");
 }
 
 
@@ -100,7 +101,7 @@ if(file1!=null){
 
 		<div class="container" role="main">
 
-			<h2>글 작성하기</h2>
+			<h2>글 수정하기</h2>
 
 			<form action="UpdateBoard" method="post" enctype="multipart/form-data">
 			
@@ -129,7 +130,7 @@ if(file1!=null){
 						
 						
 						<div id="showFiles">
-							<%=file1%><br>
+							<%=fileName%><br>
     					</div>
     					
 					</div>
@@ -154,7 +155,7 @@ if(file1!=null){
 								
 				<input type="submit" class="btn btn-sm btn-primary" id="btnSave" value="저장">
 
-				<a href="boardMain.jsp"><button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button></a>
+				<a href="Board/BoardList.jsp"><button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button></a>
 				
 
 			</div>

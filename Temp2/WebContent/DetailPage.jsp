@@ -34,7 +34,8 @@
 <%
 //request.setCharacterEncoding("EUC-KR");
 //response.setContentType("text/html; charset=EUC-KR");
-Integer cnum = (Integer) application.getAttribute("cnum");
+/*Integer cnum = (Integer) application.getAttribute("cnum");*/
+int cnum = Integer.parseInt(request.getParameter("cnum"));
 ClassDAO dao = new ClassDAO();
 ClassVO vo = dao.show(cnum);
 int distnum = dao.DistinctClass(cnum);
@@ -137,7 +138,7 @@ int distnum = dao.DistinctClass(cnum);
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul> -->
                             </li>
-                            <li><a href="./blog.html">강의수요조사</a></li>
+                            <li><a href="./blog.html">전체클래스</a></li>
                             <li><a href="./contact.html">커뮤니티</a></li>
                         </ul>
                     </nav>
