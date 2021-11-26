@@ -121,7 +121,7 @@ int distnum = dao.DistinctClass(cnum);
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="index.jsp"><img src="img/index/logooo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -143,11 +143,6 @@ int distnum = dao.DistinctClass(cnum);
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="shoping-cart.html"><i class="fa fa-heart"></i> <span>3</span></a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="humberger__open">
@@ -198,8 +193,8 @@ int distnum = dao.DistinctClass(cnum);
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
+                                <h5>062-655-3509</h5>
+                                <span>AM 09:00 ~ PM 06:00</span>
                             </div>
                         </div>
                     </div>
@@ -210,12 +205,12 @@ int distnum = dao.DistinctClass(cnum);
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/index.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>전체클래스</h2>
+                        <h2><%=vo.getC_name() %></h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <a href="Class.html">전체클래스</a>
