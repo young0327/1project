@@ -1,3 +1,11 @@
+<%@page import="Model_Comment.CommentVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model_Comment.CommentDAO"%>
+<%@page import="java.net.URLDecoder"%>
+<%@page import="Model_User.UserDAO"%>
+<%@page import="Model_User.UserVO"%>
+<%@page import="Model_Board.BoardVO"%>
+<%@page import="Model_Board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -90,6 +98,35 @@ p{
 </style>
 </head>
 <body>
+
+<% 
+	String num = request.getParameter("num");
+	int seq_num = Integer.parseInt(num);
+	BoardDAO dao = new BoardDAO();
+	BoardVO vo = dao.showOneArticle(seq_num);
+	
+	UserVO vo2 = (UserVO)session.getAttribute("user");
+	String currentUser = vo2.getId();
+	String writer = vo.getU_id();
+	
+	UserDAO daoUser = new UserDAO();
+	String currentNick = daoUser.selectOne(currentUser).getNick();
+	
+	String file1 = vo.getFile1();
+	String file1Name = null;
+	if(file1 != null){
+		file1Name = URLDecoder.decode(file1, "euc-kr");
+	}else{
+		file1Name = "파일없음";
+	}
+	
+	CommentDAO daoComment = new CommentDAO();
+	ArrayList<CommentVO> al = daoComment.showComment(seq_num);
+	
+	
+%>
+
+
 <!-- 헤더 -->
 	<div>
         <jsp:include page="header.jsp" flush="true"></jsp:include>
@@ -105,7 +142,8 @@ p{
                     <div class="breadcrumb__text">
                         <h2>커뮤니티</h2>
                         <div class="breadcrumb__option">
-                            <span href="./index.jsp">자유게시판</span>
+                            <span href="Board/BoardList.jsp">자유게시판</span>
+                           
                         </div>
                     </div>
                 </div>
@@ -119,12 +157,13 @@ p{
 	<article>
 		<div class="container" role="main">
 			<div class="bg-white rounded shadow-sm" style="padding-bottom: 10px;">
-				<div class="board_title" style="margin-top: 50px;"> 제목이 한 번 길어보자~~~~~~~~~~~
+				<div class="board_title" style="margin-top: 50px;"><%=vo.getArticle_subject() %>
 				
 					<!-- 아이디 날짜 삭제할 때  -->
+					<!-- 
 				<div class="board_info_box" style="float: right;">
 					<span class="board_author">아이디</span><span class="board_date">2021-11-25</span>
-				</div>
+				</div> -->
 				<!-- 여기까지 통으로 날리기 -->
 				
 				
@@ -132,18 +171,27 @@ p{
 				<hr>
 				<!-- 아이디 날짜 삭제할 때  -->
 				<div class="board_info_box">
-					<span class="board_author">smhrd11</span><span class="board_date">2021-11-25</span>
+					<span class="board_author"><%=vo.getNick() %></span><span class="board_date"><%=vo.getReg_date() %></span>
 				</div>
 				<!--  여기까지 통으로 날리기 -->
 				
 				
-			<div class="board_tag">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용</div>
-			<button type="button" class="btn btn-sm btn-primary" style="margin-left: 5px;">첨부파일 다운로드</button>
+			<div class="board_tag"><%=vo.getArticle_content() %></div>
+			<%if(file1 != null){ %>
+			<a href="fileUpload/<%=vo.getFile1()%>" download><button type="button" class="btn btn-sm btn-primary" style="margin-left: 5px;">첨부파일 다운로드</button></a> <span>  <%=file1Name %></span>
+			<%}else{ %>
+			<button type="button" class="btn btn-sm btn-primary" style="margin-left: 5px;">첨부파일 다운로드</button> <span>  <%=file1Name %></span>
 			
+			<%} %>
 			<div style=" float: right; padding-right: 5px;">
-				<button type="button" class="btn btn-sm btn-primary">수정</button>
-				<button type="button" class="btn btn-sm btn-primary">삭제</button>
-				<button type="button" class="btn btn-sm btn-primary" >목록</button>
+				<a href="Board/BoardList.jsp"><button type="button" class="btn btn-sm btn-primary" >목록</button></a>
+				<%if(currentUser.equals(writer) || currentUser.equals("admin")){ %>
+				<a href="boardUpdate.jsp?num=<%=vo.getArticle_seq() %>"><button type="button" id="update" class="btn btn-sm btn-primary">수정</button></a>
+				<a href="DeleteBoard?num=<%=vo.getArticle_seq() %>"><button type="button" id="delete" class="btn btn-sm btn-primary">삭제</button></a>
+				<%} %>
+				
+	
+				
 			</div>
 			</div>
 		</div>
@@ -151,21 +199,25 @@ p{
 		
 		
 	<!-- 댓글 등록 부분 -->
+	<%if(vo2 != null){  %>
 		<div class="container">
+		<input style="display:none;" id="comment_id" value="<%=currentUser%>">
+        <input style="display:none;" type="hidden" id="article_seq" value="<%=vo.getArticle_seq()%>">
 		<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top: 10px">
 				<div style="padding-bottom:8px;">
-					<h6 class="pb-2 mb-0 border-bottom">닉네임</h6>
+					<h6 class="pb-2 mb-0 border-bottom"><%=currentNick%></h6>
 				</div>
 				<div class="row">
 				<div class="col-sm-10" style="padding-top:10px">
-					<input type="text" path="content" id="content" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></input>
+					<input type="text" path="content" id="comment_content" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></input>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-sm btn-primary" id="btnReplySave" style="width: 100%; margin-top: 10px"> 등록 </button>
+					<input type="button" class="btn btn-sm btn-primary" id="comment_submit" style="width: 100%; margin-top: 10px" value="등록"> 
 				</div>
 				</div>	
 		</div>
 		</div>
+		<%} %> 
 	<!-- 댓글 등록 부분 끝 -->
 			
 			
