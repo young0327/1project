@@ -16,11 +16,10 @@ import ClassModel.ClassVO;
 
 @WebServlet("/CateCon")
 public class CateCon extends HttpServlet {
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
+		HttpSession session = request.getSession();
+		
 		String location[] = request.getParameterValues("location");
 		String time[] = request.getParameterValues("time");
 		String type[] = request.getParameterValues("type");

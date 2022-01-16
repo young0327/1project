@@ -47,17 +47,18 @@ public class ClassDAO {
 	}
 	
 	//cateSearch함수에서 리스트 값을 String 값으로 바꿔주는 method
+	
 	public String input(String[] array) {
-		String a="";
+		String cateList="";
 		
 		for(int i = 0; i<array.length;i++) {
-			a += array[i];
+			cateList += array[i];
 			if(i != array.length-1){
-			    a+= "|";
+				cateList+= "|";
 			  }
 			}
 		
-		return a;
+		return cateList;
 	}
 	
 	//카테고리에서 선택한 강의 정보 검색
@@ -100,30 +101,27 @@ public class ClassDAO {
 	// 상세 카테고리에서 선택한 강의 정보 검색
 	public ArrayList<ClassVO> cateSearch(String[] location, String[] time, String[] type, String cate) {
 		ArrayList<ClassVO> al = new ArrayList<ClassVO>();
-		String a="";
-		String b="";
-		String c="";
-		String d ="'";
+		String cateLoca="";
+		String cateTime="";
+		String cateType="";
+		String apo ="'";
 		
 		if(location==null) {
-			a="'구'";
+			cateLoca="'구'";
 		}else {
-		a=input(location);
-		a=d+a+d;
+			cateLoca=apo+input(location)+apo;
 		}
 		
 		if(time == null) {
-			b="'타임'";
+			cateTime="'타임'";
 		}else{
-		b=input(time);
-		b=d+b+d;
+			cateTime=apo+input(time)+apo;
 		}
 		
 		if(type==null) {
-			c="'형'";
+			cateType="'형'";
 		}else {
-		c=input(type);
-		c=d+c+d;
+			cateType=apo+input(type)+apo;
 		}
 		
 		
@@ -131,8 +129,9 @@ public class ClassDAO {
 		try {
 			getconn();
 
-			String sql = "select c_name, c_start_dt, c_end_dt, c_seq from T_Class where c_category1= ? and regexp_like (c_location ,"+a+") and regexp_like (c_category3 ,"+b+") and regexp_like(c_category2 ,"+c+")";
-
+			String sql = "select c_name, c_start_dt, c_end_dt, c_seq from T_Class where c_category1= ? and regexp_like (c_location ,"+cateLoca+") "
+					+ " and regexp_like(c_category2 ,"+cateType+") and regexp_like (c_category3 ,"+cateTime+")";
+			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, cate);
 			rs = psmt.executeQuery();

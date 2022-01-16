@@ -52,8 +52,6 @@ $(function(){
 			
 			if(index===endpoint){
 						console.log(select);
-						console.log(resultword);
-						console.log("결과라인"+index);
 						return goResult();						
 					}else{
 					$(".qBox").html(qnaList[index].q);
@@ -70,23 +68,9 @@ $(function(){
 				}
 			}
 			
-			function setResult(){
-				let answer=0;
-				let point = resultword;
-				console.log("point"+point);
-				$('.resultName').text(infoList[point].name);
-				$('#resultImg').append('<img id="reimg" src= "./img/test/image-'+point+'.png" class="resultImg">')
-				$('.resultDesc').text(infoList[point].desc);
-				$('.resultDesc2').text(infoList[point].desc2);
-				$('.searchLink').on('click',function(){
-					console.log(infoList[point].name + "운비");
-					location.href="MainSearchClass.jsp?type="+infoList[point].name})
-				console.log(infoList[point].name)
-			}
-			
 			function goResult(){
 				$("#testQNA").css('display','none').show();
-				 $("#testResult").css('display','block');
+				$("#testResult").css('display','block');
 			calResult();
 			setResult();
 			}
@@ -103,23 +87,30 @@ $(function(){
 							for(let k=0;k<pointArray.length;k++){
 								if(target.type1[0]==pointArray[k].name){
 									pointArray[k].value+=1
-								
 							}
-							
 						}
 				}
-				let resultArray = pointArray.sort(function(a,b){
-					if(a.value>b.value){
-						return-1;
-					}
-					if(a.value<b.value){
-						return 1;
-					}
-					return 0;
-				});
-				console.log(resultArray);//
-				resultword = resultArray[0].key;
-				return resultword;
 				
+				console.log(pointArray);//
+				resultword = pointArray[0].key;
+				return resultword;
 			}
+			
+			function setResult(){
+				let answer=0;
+				let point = resultword;
+				$('.resultName').text(infoList[point].name);
+				$('#resultImg').append('<img id="reimg" src= "./img/test/image-'+point+'.png" class="resultImg">')
+				$('.resultDesc').text(infoList[point].desc);
+				$('.resultDesc2').text(infoList[point].desc2);
+				$('.searchLink').on('click',function(){
+					location.href="MainSearchClass.jsp?type="+infoList[point].name})
+				console.log(infoList[point].name)
+			}
+			
 	
+	
+			
+		
+			
+			
